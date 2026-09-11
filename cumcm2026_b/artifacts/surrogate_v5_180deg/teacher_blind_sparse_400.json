@@ -1,0 +1,52 @@
+{
+  "created_at_utc": "2026-09-10T18:33:19.232187+00:00",
+  "official_simulator_data": false,
+  "seed_policy": "held-out namespace, not used for training, validation, test, or tuning",
+  "config": {
+    "episodes_per_variant": 200,
+    "base_seed": 60000000,
+    "max_steps": 3000,
+    "workers": 16,
+    "output": "artifacts\\surrogate_v5_180deg\\teacher_blind_sparse_400.json"
+  },
+  "by_q_variant": {
+    "3": {
+      "episodes": 200,
+      "completed_episodes": 200,
+      "episode_success_rate": 1.0,
+      "sources": 2598,
+      "cleared_sources": 2598,
+      "source_clear_rate": 1.0,
+      "decisions_mean": 81.915,
+      "decisions_p95": 96.04999999999998,
+      "decisions_max": 101,
+      "virtual_time_mean_s": 9004.878717726622,
+      "virtual_time_p95_s": 11577.657572374188,
+      "virtual_time_max_s": 12267.674462683583,
+      "within_100h_rate": 1.0,
+      "failure_seeds": []
+    },
+    "4": {
+      "episodes": 200,
+      "completed_episodes": 195,
+      "episode_success_rate": 0.975,
+      "sources": 2602,
+      "cleared_sources": 2547,
+      "source_clear_rate": 0.9788624135280554,
+      "decisions_mean": 508.63,
+      "decisions_p95": 1060.4499999999996,
+      "decisions_max": 3000,
+      "virtual_time_mean_s": 17920.978954510214,
+      "virtual_time_p95_s": 40731.5977357239,
+      "virtual_time_max_s": 127395.17154900187,
+      "within_100h_rate": 1.0,
+      "failure_seeds": [
+        64000031,
+        64000120,
+        64000122,
+        64000136,
+        64000161
+      ]
+    }
+  }
+}

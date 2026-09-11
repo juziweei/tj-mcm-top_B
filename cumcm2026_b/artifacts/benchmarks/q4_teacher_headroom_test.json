@@ -1,0 +1,16 @@
+{
+  "dataset": "C:\\Users\\10399\\Documents\\ChatGPT\\数模\\cumcm2026_b\\data\\surrogate_v5_180deg_10m",
+  "split": "test",
+  "q4_decisions": 38486,
+  "teacher_action_agreement": 0.602452839993764,
+  "missed_immediate_clear_rate": 0.09881515356233435,
+  "missed_immediate_clears": 3803,
+  "short_chosen_action_when_clear_was_available": 0,
+  "equal_clear_decisions": 34683,
+  "positive_information_regret_rate_with_equal_clear": 0.32825880114176975,
+  "mean_positive_information_regret": 2.4165514670639614,
+  "mean_chosen_action_duration_s": 35.011307738944,
+  "mean_teacher_action_duration_s": 124.95934004130187,
+  "mean_candidates_per_decision": 14.074468637946266,
+  "interpretation_limit": "One-step privileged labels establish available headroom, not closed-loop attainability from observable features."
+}

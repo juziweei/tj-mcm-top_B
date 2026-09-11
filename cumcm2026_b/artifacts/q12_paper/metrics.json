@@ -1,0 +1,242 @@
+{
+  "constants": {
+    "target_radius_m": 1800.0,
+    "bearing_error_deg": 1.0,
+    "maximum_receive_radius_m": 1500.0,
+    "minimum_guaranteed_receive_radius_m": 1000.0
+  },
+  "q1_example": {
+    "true_source": [
+      500.0,
+      400.0
+    ],
+    "observers": [
+      [
+        -500.0,
+        0.0
+      ],
+      [
+        400.0,
+        -600.0
+      ],
+      [
+        -200.0,
+        1000.0
+      ]
+    ],
+    "measurement_errors_deg": [
+      0.6,
+      -0.7,
+      0.3
+    ],
+    "measured_bearings_deg": [
+      22.401409,
+      83.589407,
+      319.698705
+    ],
+    "vertices": 4,
+    "area_m2": 673.00263694975,
+    "diameter_m": 40.748020262550725,
+    "diameter_endpoints": [
+      [
+        497.47061635772593,
+        429.1005968653631
+      ],
+      [
+        529.0024897197466,
+        403.2908677385641
+      ]
+    ],
+    "minimum_enclosing_circle_center": [
+      507.04180815723765,
+      408.6275819291405
+    ],
+    "minimum_enclosing_circle_radius_m": 22.59982418165759,
+    "covered_by_diameter_circle": false
+  },
+  "q2_example": {
+    "first_observer": [
+      0.0,
+      0.0
+    ],
+    "first_bearing_deg": 35.0,
+    "hypotheses": 150,
+    "candidate_grid_spacing_m": 100.0,
+    "evaluated_candidates": 1009,
+    "best": {
+      "point": [
+        1000.0,
+        100.0
+      ],
+      "missed_fraction": 0.0,
+      "worst_diameter_m": 110.85423533033392,
+      "mean_diameter_m": 55.975802690339705,
+      "travel_distance_m": 1004.987562112089
+    },
+    "top10": [
+      {
+        "rank": 1,
+        "x_m": 1000.0,
+        "y_m": 100.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 110.85423533033392,
+        "mean_diameter_m": 55.975802690339705,
+        "travel_distance_m": 1004.987562112089
+      },
+      {
+        "rank": 2,
+        "x_m": 1000.0,
+        "y_m": 200.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 111.28520920749433,
+        "mean_diameter_m": 59.74729234331294,
+        "travel_distance_m": 1019.803902718557
+      },
+      {
+        "rank": 3,
+        "x_m": 1000.0,
+        "y_m": 0.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 111.5672389935306,
+        "mean_diameter_m": 54.421440453427586,
+        "travel_distance_m": 1000.0
+      },
+      {
+        "rank": 4,
+        "x_m": 1000.0,
+        "y_m": -100.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 112.23189530333657,
+        "mean_diameter_m": 54.308866047686216,
+        "travel_distance_m": 1004.987562112089
+      },
+      {
+        "rank": 5,
+        "x_m": 400.0,
+        "y_m": 900.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 114.45400771530355,
+        "mean_diameter_m": 55.41936771593008,
+        "travel_distance_m": 984.8857801796105
+      },
+      {
+        "rank": 6,
+        "x_m": 300.0,
+        "y_m": 900.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 119.77089198102561,
+        "mean_diameter_m": 54.86094237024977,
+        "travel_distance_m": 948.6832980505138
+      },
+      {
+        "rank": 7,
+        "x_m": 600.0,
+        "y_m": 800.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 126.08868943715811,
+        "mean_diameter_m": 67.36020279259189,
+        "travel_distance_m": 1000.0
+      },
+      {
+        "rank": 8,
+        "x_m": 900.0,
+        "y_m": 0.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 128.83126511416458,
+        "mean_diameter_m": 55.992130605533816,
+        "travel_distance_m": 900.0
+      },
+      {
+        "rank": 9,
+        "x_m": 500.0,
+        "y_m": 800.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 130.80415962527192,
+        "mean_diameter_m": 60.942811669516956,
+        "travel_distance_m": 943.3981132056604
+      },
+      {
+        "rank": 10,
+        "x_m": 900.0,
+        "y_m": 100.0,
+        "missed_fraction": 0.0,
+        "worst_diameter_m": 131.52344143434783,
+        "mean_diameter_m": 57.638113388570694,
+        "travel_distance_m": 905.5385138137417
+      }
+    ],
+    "zero_miss_candidates": 51,
+    "recommended_region_candidates": 11,
+    "recommended_worst_diameter_threshold_m": 134.67679290151477
+  },
+  "q2_crossing_angle_sensitivity": [
+    {
+      "crossing_angle_deg": 10.0,
+      "diameter_m": 354.61959632392865
+    },
+    {
+      "crossing_angle_deg": 15.0,
+      "diameter_m": 231.46642841123096
+    },
+    {
+      "crossing_angle_deg": 20.0,
+      "diameter_m": 172.65656212928883
+    },
+    {
+      "crossing_angle_deg": 25.0,
+      "diameter_m": 138.05822711484407
+    },
+    {
+      "crossing_angle_deg": 30.0,
+      "diameter_m": 115.26619600955073
+    },
+    {
+      "crossing_angle_deg": 35.0,
+      "diameter_m": 99.13541149906469
+    },
+    {
+      "crossing_angle_deg": 40.0,
+      "diameter_m": 87.13821616416107
+    },
+    {
+      "crossing_angle_deg": 45.0,
+      "diameter_m": 77.88535636898267
+    },
+    {
+      "crossing_angle_deg": 50.0,
+      "diameter_m": 70.54929257087001
+    },
+    {
+      "crossing_angle_deg": 55.0,
+      "diameter_m": 64.60623189361355
+    },
+    {
+      "crossing_angle_deg": 60.0,
+      "diameter_m": 59.70853410160612
+    },
+    {
+      "crossing_angle_deg": 65.0,
+      "diameter_m": 55.616541944773296
+    },
+    {
+      "crossing_angle_deg": 70.0,
+      "diameter_m": 52.15986292876785
+    },
+    {
+      "crossing_angle_deg": 75.0,
+      "diameter_m": 49.21426087040021
+    },
+    {
+      "crossing_angle_deg": 80.0,
+      "diameter_m": 46.687292462388015
+    },
+    {
+      "crossing_angle_deg": 85.0,
+      "diameter_m": 44.50908011231166
+    },
+    {
+      "crossing_angle_deg": 90.0,
+      "diameter_m": 42.626231494529975
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "episodes": 500,
+  "environment_directional_probability": 0.5,
+  "belief_directional_probability": 0.5,
+  "source_clear_rate": 0.999847071417648,
+  "complete_case_rate": 0.998,
+  "mean_episode_mean_time_s": 611.7880333905721,
+  "p95_episode_mean_time_s": 884.6673894925291,
+  "mean_measure_actions": 349.864,
+  "mean_clear_actions": 20.328,
+  "mean_discovery_positions": 30.238,
+  "mean_travel_m": 27898.692796552983,
+  "mean_discovery_travel_m": 15612.708096729893,
+  "mean_pursuit_travel_m": 12285.98469982309,
+  "mean_movement_time_s_per_source": 442.14080962267343,
+  "mean_nonmovement_time_s_per_source": 169.64722376789868,
+  "mean_approximate_oracle_s_per_source": 146.2024758371919,
+  "mean_competitive_ratio": 4.171873320425001,
+  "probability_stop_rate": 1.0,
+  "failures": [
+    {
+      "seed": 114000338,
+      "sources": 13,
+      "cleared": 12,
+      "virtual_time_s": 7822.765788714705,
+      "mean_time_s": 651.8971490595587,
+      "measures": 356,
+      "clears": 21,
+      "travel_m": 28348.828943573535,
+      "discovery_travel_m": 15536.209276873375,
+      "pursuit_travel_m": 12812.619666700164,
+      "discovery_positions": 29,
+      "unresolved": [],
+      "posterior_complete": 0.998414247708001,
+      "probability_stop": true,
+      "approximate_oracle_time_s": 1852.3119961445973,
+      "competitive_ratio": 4.223244142993735
+    }
+  ],
+  "wall_time_s": 431.69840999999724
+}

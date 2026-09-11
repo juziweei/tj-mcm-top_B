@@ -1,0 +1,44 @@
+{
+  "created_at_utc": "2026-09-10T21:00:36.922578+00:00",
+  "question": 4,
+  "mode": "official_practice",
+  "practice_journal": "vendor/official_simulator/Jammers-simulator/JammersSimulatorData/behavior-runs/run-ksm2uEWuKtcbUUgpensccw/behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789074036684,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789074041306,
+    "virtual_time_s": 15336.276201,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 4.720238699999754,
+  "virtual_time_s": 15336.276201,
+  "cleared_count": 12,
+  "cleared_channels": [
+    1,
+    3,
+    4,
+    6,
+    7,
+    11,
+    13,
+    15,
+    17,
+    18,
+    19,
+    20
+  ],
+  "measure_actions": 619,
+  "clear_actions": 57,
+  "travel_distance_m": 57491.38099649786,
+  "discovery_positions": 52,
+  "unresolved_channels": [],
+  "mean_virtual_time_per_cleared_source_s": 1278.0230167500001
+}

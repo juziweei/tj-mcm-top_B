@@ -1,0 +1,46 @@
+{
+  "created_at_utc": "2026-09-10T18:55:50.144719+00:00",
+  "official_simulator_data": false,
+  "seed_policy": "held-out namespace, not used for training, validation, test, or tuning",
+  "config": {
+    "episodes_per_variant": 1000,
+    "base_seed": 90000000,
+    "max_steps": 3000,
+    "workers": 24,
+    "output": "artifacts\\surrogate_v5_180deg\\controller_blind_2000.json"
+  },
+  "by_q_variant": {
+    "3": {
+      "episodes": 1000,
+      "completed_episodes": 1000,
+      "episode_success_rate": 1.0,
+      "sources": 13008,
+      "cleared_sources": 13008,
+      "source_clear_rate": 1.0,
+      "decisions_mean": 183.886,
+      "decisions_p95": 208.0,
+      "decisions_max": 223,
+      "virtual_time_mean_s": 7997.698760258999,
+      "virtual_time_p95_s": 9642.121663104414,
+      "virtual_time_max_s": 10551.404355047043,
+      "within_100h_rate": 1.0,
+      "failure_seeds": []
+    },
+    "4": {
+      "episodes": 1000,
+      "completed_episodes": 1000,
+      "episode_success_rate": 1.0,
+      "sources": 12974,
+      "cleared_sources": 12974,
+      "source_clear_rate": 1.0,
+      "decisions_mean": 564.309,
+      "decisions_p95": 690.0,
+      "decisions_max": 784,
+      "virtual_time_mean_s": 17336.213318096714,
+      "virtual_time_p95_s": 18676.42060705367,
+      "virtual_time_max_s": 19778.98091833838,
+      "within_100h_rate": 1.0,
+      "failure_seeds": []
+    }
+  }
+}

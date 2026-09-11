@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "scope": "official_practice_only",
+  "formal_test_run": false,
+  "q3": {
+    "case_code": "7MAD-EXFH-4XUQ-T646",
+    "source_count": 11,
+    "cleared_sources": 11,
+    "source_clear_rate": 1.0,
+    "wall_time_s": 0.9819553999986965,
+    "virtual_time_s": 4258.090797,
+    "measure_actions": 139,
+    "clear_actions": 11,
+    "client_summary": "artifacts/official_practice/q3_run_001/summary.json",
+    "official_result": "vendor/official_simulator/Jammers-simulator/JammersSimulatorData/behavior-logs/practice-p3-1925644403899741757-7MAD-EXFH-4XUQ-T646.result.json"
+  },
+  "q4": {
+    "case_code": "R3U2-MWN5-9Q9X-232Z",
+    "source_count": 12,
+    "cleared_sources": 12,
+    "source_clear_rate": 1.0,
+    "wall_time_s": 4.720238699999754,
+    "virtual_time_s": 15336.276201,
+    "measure_actions": 619,
+    "clear_actions": 57,
+    "successful_clear_actions": 12,
+    "unresolved_channels": 0,
+    "client_summary": "artifacts/official_practice/q4_run_001/summary.json",
+    "client_log": "artifacts/official_practice/q4_run_001/client.jsonl",
+    "official_result": "vendor/official_simulator/Jammers-simulator/JammersSimulatorData/behavior-logs/practice-p4-1353814065560824535-R3U2-MWN5-9Q9X-232Z.result.json"
+  },
+  "acceptance": {
+    "q3_source_clear_rate_near_100_percent": true,
+    "q4_source_clear_rate_near_100_percent": true,
+    "q3_wall_time_under_100s": true,
+    "q4_wall_time_under_100s": true
+  }
+}

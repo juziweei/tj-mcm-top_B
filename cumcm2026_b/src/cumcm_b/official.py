@@ -1,0 +1,109 @@
+"""Adapters and safety checks for the official CUMCM B simulator."""
+
+from __future__ import annotations
+
+import json
+from pathlib import Path
+from typing import Any
+
+from .client import SimulatorClient
+from .geometry import Point
+from .simulator import ClearObservation, MeasureObservation
+
+
+def require_latest_practice_run(simulator_data_dir: str | Path) -> Path:
+    """Return the latest behavior journal only when it is a practice run.
+
+    The official UI separates practice and formal tests, while the local HTTP
+    protocol does not.  Refusing to enter a non-practice journal prevents an
+    accidental formal-attempt consumption at that irreversible boundary.
+    """
+
+    runs_dir = Path(simulator_data_dir) / "behavior-runs"
+    journals = sorted(
+        runs_dir.glob("run-*/behavior.journal.jsonl"),
+        key=lambda path: path.stat().st_mtime_ns,
+        reverse=True,
+    )
+    if not journals:
+        raise RuntimeError(f"no official behavior journal found under {runs_dir}")
+
+    journal = journals[0]
+    lifecycle_events: list[str] = []
+    with journal.open("r", encoding="utf-8") as stream:
+        for line in stream:
+            if not line.strip():
+                continue
+            record = json.loads(line)
+            if record.get("record_type") == "lifecycle":
+                lifecycle_events.append(str(record.get("event", "")))
+
+    if "practice_authorized" not in lifecycle_events:
+        raise RuntimeError(
+            "latest official simulator run is not proven to be practice; "
+            "refusing to call /enter"
+        )
+    if "formal_authorized" in lifecycle_events:
+        raise RuntimeError("latest journal contains a formal authorization")
+    if "api_opened" not in lifecycle_events:
+        raise RuntimeError("practice run exists, but its local API is not open yet")
+    return journal
+
+
+class OfficialEnvironmentAdapter:
+    """Expose the official HTTP simulator through the local environment API."""
+
+    def __init__(self, client: SimulatorClient):
+        self.client = client
+        self.position: Point = (0.0, 0.0)
+        self.current_channel = 1
+        self.virtual_time_s = 0.0
+        self.cleared_channels: set[int] = set()
+
+    @property
+    def cleared_count(self) -> int:
+        return len(self.cleared_channels)
+
+    @property
+    def source_count(self) -> int:
+        # The official API intentionally hides the source count.  At the end
+        # of a run, the adapter can only report the number it cleared.
+        return self.cleared_count
+
+    def measure(self, position: Point, channel: int) -> MeasureObservation:
+        before = self.virtual_time_s
+        response = self.client.measure(position, channel)
+        self.virtual_time_s = float(response["virtual_time_s"])
+        duration = self.virtual_time_s - before
+        self.position = (float(position[0]), float(position[1]))
+        self.current_channel = int(channel)
+        result = str(response["measure_result"])
+        bearing = (
+            float(response["svd_deg"])
+            if result == "direction"
+            else None
+        )
+        return MeasureObservation(
+            result, self.position, channel, self.virtual_time_s, duration, bearing
+        )
+
+    def clear(self, position: Point, channel: int) -> ClearObservation:
+        before = self.virtual_time_s
+        response = self.client.clear(position, channel)
+        self.virtual_time_s = float(response["virtual_time_s"])
+        duration = self.virtual_time_s - before
+        self.position = (float(position[0]), float(position[1]))
+        result = str(response["clear_result"])
+        if result == "success":
+            self.cleared_channels.add(int(channel))
+        return ClearObservation(
+            result, self.position, channel, self.virtual_time_s, duration
+        )
+
+    def state_dict(self) -> dict[str, Any]:
+        return {
+            "position": {"x": self.position[0], "y": self.position[1]},
+            "current_channel": self.current_channel,
+            "virtual_time_s": self.virtual_time_s,
+            "cleared_channels": sorted(self.cleared_channels),
+        }

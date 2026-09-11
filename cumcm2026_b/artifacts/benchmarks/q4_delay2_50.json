@@ -1,0 +1,20 @@
+{
+  "episodes": 50,
+  "source_clear_rate": 1.0,
+  "complete_case_rate": 1.0,
+  "mean_episode_mean_time_s": 656.2195064211639,
+  "p95_episode_mean_time_s": 942.3187127760139,
+  "mean_measure_actions": 382.38,
+  "mean_clear_actions": 17.92,
+  "mean_discovery_positions": 33.38,
+  "mean_travel_m": 28924.946753189037,
+  "mean_discovery_travel_m": 17835.206025458127,
+  "mean_pursuit_travel_m": 11089.740727730916,
+  "mean_movement_time_s_per_source": 466.98790294131044,
+  "mean_nonmovement_time_s_per_source": 189.23160347985345,
+  "mean_approximate_oracle_s_per_source": 147.31974823196387,
+  "mean_competitive_ratio": 4.419218766114452,
+  "probability_stop_rate": 1.0,
+  "failures": [],
+  "wall_time_s": 39.560716500003764
+}

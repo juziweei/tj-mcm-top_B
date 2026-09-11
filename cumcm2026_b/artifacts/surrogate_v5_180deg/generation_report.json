@@ -1,0 +1,99 @@
+{
+  "status": "COMPLETE_OFFICIAL_PRACTICE_VALIDATED",
+  "dataset": "data/surrogate_v5_180deg_10m",
+  "old_dataset_status": {
+    "dataset": "surrogate_v4_10m",
+    "status": "INVALID_DO_NOT_TRAIN",
+    "reason": "Q4 directional total coverage was incorrectly implemented as 90 degrees"
+  },
+  "generation": {
+    "candidate_rows": 10357637,
+    "decisions": 549879,
+    "episodes": 1606,
+    "elapsed_s": 609.9149226000009,
+    "bytes": 2352467598
+  },
+  "quality": {
+    "validation_status": "PASS",
+    "incomplete_episodes": 0,
+    "sources": 20764,
+    "cleared_sources": 20764,
+    "source_clear_rate": 1.0,
+    "episode_completion_rate": 1.0,
+    "split_episode_overlap": {
+      "train_val": 0,
+      "train_test": 0,
+      "val_test": 0
+    },
+    "training_batch_smoke_test": {
+      "status": "PASS",
+      "split": "train",
+      "batches": 20,
+      "decision_groups": 5120,
+      "candidate_rows": 99637,
+      "feature_count": 47,
+      "q_variants_seen": [3, 4]
+    }
+  },
+  "held_out_controller_stress": {
+    "episodes": 2000,
+    "q3": {
+      "episodes": 1000,
+      "sources": 13008,
+      "cleared_sources": 13008,
+      "source_clear_rate": 1.0,
+      "episode_success_rate": 1.0,
+      "maximum_decisions": 223
+    },
+    "q4": {
+      "episodes": 1000,
+      "sources": 12974,
+      "cleared_sources": 12974,
+      "source_clear_rate": 1.0,
+      "episode_success_rate": 1.0,
+      "maximum_decisions": 784
+    }
+  },
+  "official_practice": {
+    "q3": {
+      "status": "PASS",
+      "case_code": "7MAD-EXFH-4XUQ-T646",
+      "cleared_sources": 11,
+      "source_count": 11,
+      "wall_time_s": 0.9819553999986965,
+      "virtual_time_s": 4258.090797
+    },
+    "q4": {
+      "status": "PASS",
+      "case_code": "R3U2-MWN5-9Q9X-232Z",
+      "source_count": 12,
+      "cleared_sources": 12,
+      "source_clear_rate": 1.0,
+      "wall_time_s": 4.720238699999754,
+      "virtual_time_s": 15336.276201,
+      "measure_actions": 619,
+      "clear_actions": 57,
+      "successful_clear_actions": 12,
+      "unresolved_channels": 0,
+      "official_result": "vendor/official_simulator/Jammers-simulator/JammersSimulatorData/behavior-logs/practice-p4-1353814065560824535-R3U2-MWN5-9Q9X-232Z.result.json",
+      "client_log": "artifacts/official_practice/q4_run_001/client.jsonl",
+      "client_summary": "artifacts/official_practice/q4_run_001/summary.json",
+      "official_protocol_shape_preflight": {
+        "status": "PASS",
+        "entrypoint": "run_official_q4.py",
+        "mock_mixed_sources": 10,
+        "mock_cleared_sources": 10,
+        "request_ids_unique": true,
+        "request_log_complete": true
+      }
+    }
+  },
+  "goal_audit": {
+    "data_generation_under_8h": true,
+    "data_generation_elapsed_s": 609.9149226000009,
+    "q3_official_practice_source_clear_rate": 1.0,
+    "q4_official_practice_source_clear_rate": 1.0,
+    "q3_official_practice_wall_time_under_100s": true,
+    "q4_official_practice_wall_time_under_100s": true
+  }
+}

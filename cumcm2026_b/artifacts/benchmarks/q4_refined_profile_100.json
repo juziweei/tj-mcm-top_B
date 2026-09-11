@@ -1,0 +1,33 @@
+{
+  "episodes": 100,
+  "source_clear_rate": 0.9992313604919293,
+  "complete_case_rate": 0.99,
+  "mean_episode_mean_time_s": 623.587039636027,
+  "p95_episode_mean_time_s": 881.5445185429119,
+  "mean_measure_actions": 363.93,
+  "mean_travel_m": 28068.556143546433,
+  "mean_discovery_travel_m": 15936.039982809554,
+  "mean_pursuit_travel_m": 12132.516160736877,
+  "mean_approximate_oracle_s_per_source": 147.02275303918617,
+  "mean_competitive_ratio": 4.235614572255218,
+  "probability_stop_rate": 1.0,
+  "failures": [
+    {
+      "seed": 102000035,
+      "sources": 12,
+      "cleared": 11,
+      "virtual_time_s": 8482.763569679992,
+      "mean_time_s": 771.1603245163628,
+      "measures": 395,
+      "travel_m": 30488.817848399958,
+      "discovery_travel_m": 19526.662363965526,
+      "pursuit_travel_m": 10962.155484434437,
+      "unresolved": [],
+      "posterior_complete": 0.998536139326571,
+      "probability_stop": true,
+      "approximate_oracle_time_s": 1847.587924272464,
+      "competitive_ratio": 4.591263808470875
+    }
+  ],
+  "wall_time_s": 77.75500820000161
+}

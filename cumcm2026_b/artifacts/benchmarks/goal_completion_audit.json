@@ -1,0 +1,102 @@
+{
+  "created_at_utc": "2026-09-11T09:48:32.295100+00:00",
+  "passed": true,
+  "passed_checks": 11,
+  "total_checks": 11,
+  "checks": [
+    {
+      "name": "q4_fixed_500_paired",
+      "passed": true,
+      "evidence": {
+        "episodes": 500
+      }
+    },
+    {
+      "name": "q4_mixed_500_paired",
+      "passed": true,
+      "evidence": {
+        "episodes": 500
+      }
+    },
+    {
+      "name": "balanced_near_100pct_source_clear",
+      "passed": true,
+      "evidence": {
+        "cleared": 14472,
+        "sources": 14478,
+        "combined_source_clear_rate": 0.9995855781185247
+      }
+    },
+    {
+      "name": "balanced_mixed_improvement_gate",
+      "passed": true,
+      "evidence": {
+        "mean_relative_savings": 0.10449348205303406,
+        "lower_95pct_ci": 0.0987277450698895
+      }
+    },
+    {
+      "name": "conservative_preserves_fixed_clear_rate",
+      "passed": true,
+      "evidence": {
+        "baseline": 1.0,
+        "candidate": 1.0
+      }
+    },
+    {
+      "name": "conservative_preserves_mixed_clear_rate",
+      "passed": true,
+      "evidence": {
+        "baseline": 0.9998456313677061,
+        "candidate": 0.9998456313677061
+      }
+    },
+    {
+      "name": "q3_joint_planner_complete",
+      "passed": true,
+      "evidence": {
+        "episodes": 20,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 316.7841060578839
+      }
+    },
+    {
+      "name": "q3_wall_clock_under_100s",
+      "passed": true,
+      "evidence": {
+        "episodes": 20,
+        "complete_case_rate": 1.0,
+        "max_episode_wall_time_s": 2.9693874000004143
+      }
+    },
+    {
+      "name": "official_q3_practice",
+      "passed": true,
+      "evidence": {
+        "cleared_count": 13,
+        "mean_time_s_per_source": 316.7807235384616,
+        "wall_time_s": 2.323753000000579
+      }
+    },
+    {
+      "name": "q4_wall_clock_under_100s",
+      "passed": true,
+      "evidence": {
+        "maximum_across_final_reports_s": 1.140083300000697
+      }
+    },
+    {
+      "name": "official_q4_balanced_practice",
+      "passed": true,
+      "evidence": {
+        "path": "C:\\Users\\10399\\Documents\\ChatGPT\\数模\\cumcm2026_b\\artifacts\\official_practice\\q4_run_004\\summary.json",
+        "mode": "official_practice",
+        "profile": "balanced",
+        "cleared_count": 12,
+        "official_all_cleared": true,
+        "wall_time_s": 5.896274400001857
+      }
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "created_at_utc": "2026-09-11T12:46:46.810317+00:00",
+  "question": 3,
+  "mode": "official_practice",
+  "practice_journal": "vendor\\official_simulator\\Jammers-simulator\\JammersSimulatorData\\behavior-runs\\run-rab24fYxeQeh7WF5HnQmlw\\behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "strategy": "joint",
+  "official_statistics": {
+    "id": 17,
+    "practice_run_no": 3289588028199237895,
+    "case_code": "GF3A-DJMD-FMAE-XC5Z",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 12,
+    "measure_accepted_count": 206,
+    "virtual_time_us": 4037711226,
+    "program_run_duration_ms": 2632,
+    "channel_switch_count": 160,
+    "clear_failure_count": 0,
+    "jammer_count": 12,
+    "state": "confirmed"
+  },
+  "official_all_cleared": true,
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789130803508,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789130806141,
+    "virtual_time_s": 4037.711226,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 2.73070000000007,
+  "virtual_time_s": 4037.711226,
+  "cleared_count": 12,
+  "cleared_channels": [
+    1,
+    2,
+    3,
+    5,
+    7,
+    8,
+    10,
+    11,
+    13,
+    14,
+    16,
+    18
+  ],
+  "measure_actions": 206,
+  "clear_actions": 12,
+  "travel_distance_m": 13938.5561278979,
+  "discovery_measure_actions": 158,
+  "pursuit_measure_actions": 48,
+  "posterior_all_sources_detected": 0.9984144411159326,
+  "mean_virtual_time_per_cleared_source_s": 336.4759355
+}

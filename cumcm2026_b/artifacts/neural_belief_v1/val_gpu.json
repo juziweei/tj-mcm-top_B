@@ -1,0 +1,252 @@
+{
+  "device": "cuda",
+  "split": "val",
+  "episodes": 1500,
+  "tokens": 486678,
+  "inference_wall_s": 3.280407726764679,
+  "mean_inference_ms_per_episode": 2.186938484509786,
+  "completion_brier": 0.059671055525541306,
+  "completion_calibration": [
+    {
+      "lower": 0.0,
+      "upper": 0.1,
+      "samples": 312851,
+      "mean_probability": 0.002368316752836108,
+      "empirical_complete": 0.00046347941991555083
+    },
+    {
+      "lower": 0.1,
+      "upper": 0.2,
+      "samples": 9087,
+      "mean_probability": 0.15095588564872742,
+      "empirical_complete": 0.09166941784967536
+    },
+    {
+      "lower": 0.2,
+      "upper": 0.30000000000000004,
+      "samples": 12266,
+      "mean_probability": 0.2536980211734772,
+      "empirical_complete": 0.18873308331974564
+    },
+    {
+      "lower": 0.30000000000000004,
+      "upper": 0.4,
+      "samples": 18843,
+      "mean_probability": 0.35253289341926575,
+      "empirical_complete": 0.30318951334713157
+    },
+    {
+      "lower": 0.4,
+      "upper": 0.5,
+      "samples": 21013,
+      "mean_probability": 0.4496244788169861,
+      "empirical_complete": 0.43263693903773853
+    },
+    {
+      "lower": 0.5,
+      "upper": 0.6000000000000001,
+      "samples": 18631,
+      "mean_probability": 0.5489392876625061,
+      "empirical_complete": 0.5257903494176372
+    },
+    {
+      "lower": 0.6000000000000001,
+      "upper": 0.7000000000000001,
+      "samples": 17566,
+      "mean_probability": 0.6496289372444153,
+      "empirical_complete": 0.6247295912558352
+    },
+    {
+      "lower": 0.7000000000000001,
+      "upper": 0.8,
+      "samples": 17776,
+      "mean_probability": 0.7510147094726562,
+      "empirical_complete": 0.7271039603960396
+    },
+    {
+      "lower": 0.8,
+      "upper": 0.9,
+      "samples": 21280,
+      "mean_probability": 0.8526631593704224,
+      "empirical_complete": 0.8345864661654135
+    },
+    {
+      "lower": 0.9,
+      "upper": 1.0,
+      "samples": 37365,
+      "mean_probability": 0.9508211016654968,
+      "empirical_complete": 0.9473303894018467
+    }
+  ],
+  "time_heads": {
+    "next_detection_discrete_nll": 1.4603136777877808,
+    "remaining_time_median_mae_s": 762.1498413085938,
+    "remaining_time_10_90_coverage": 0.793269882756155
+  },
+  "frontier": {
+    "3": [
+      {
+        "episodes": 500,
+        "threshold": 0.5,
+        "complete_case_rate": 0.68,
+        "source_clear_rate": 0.967316249808194,
+        "mean_time_s_per_source": 251.25034611251104,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.17925316487996085,
+        "learned_stop_rate": 0.97
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.8,
+        "complete_case_rate": 0.82,
+        "source_clear_rate": 0.9837348473223876,
+        "mean_time_s_per_source": 268.4564937060644,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.12304671024011973,
+        "learned_stop_rate": 0.886
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.9,
+        "complete_case_rate": 0.902,
+        "source_clear_rate": 0.9911001994782875,
+        "mean_time_s_per_source": 280.6086104730896,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.08335000322711221,
+        "learned_stop_rate": 0.826
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.95,
+        "complete_case_rate": 0.962,
+        "source_clear_rate": 0.9966242135952125,
+        "mean_time_s_per_source": 292.97451987799934,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.042954910585465,
+        "learned_stop_rate": 0.666
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.97,
+        "complete_case_rate": 0.99,
+        "source_clear_rate": 0.9992327758170938,
+        "mean_time_s_per_source": 301.80096095578153,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.014122020633069929,
+        "learned_stop_rate": 0.4
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.99,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998465551634188,
+        "mean_time_s_per_source": 306.1240511220054,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.995,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998465551634188,
+        "mean_time_s_per_source": 306.1240511220054,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.998,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998465551634188,
+        "mean_time_s_per_source": 306.1240511220054,
+        "baseline_mean_time_s_per_source": 306.1240511220054,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      }
+    ],
+    "4": [
+      {
+        "episodes": 1000,
+        "threshold": 0.5,
+        "complete_case_rate": 0.539,
+        "source_clear_rate": 0.949551222531724,
+        "mean_time_s_per_source": 386.78890742801065,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.3555470635159758,
+        "learned_stop_rate": 0.952
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.8,
+        "complete_case_rate": 0.814,
+        "source_clear_rate": 0.9836737852058186,
+        "mean_time_s_per_source": 499.204128878141,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.16824510583891367,
+        "learned_stop_rate": 0.899
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.9,
+        "complete_case_rate": 0.912,
+        "source_clear_rate": 0.9927267099969049,
+        "mean_time_s_per_source": 539.9706486826229,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.10032148421043584,
+        "learned_stop_rate": 0.868
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.95,
+        "complete_case_rate": 0.966,
+        "source_clear_rate": 0.9972918601052306,
+        "mean_time_s_per_source": 567.8152603154136,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.053927853505426386,
+        "learned_stop_rate": 0.741
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.97,
+        "complete_case_rate": 0.986,
+        "source_clear_rate": 0.9989167440420922,
+        "mean_time_s_per_source": 584.3228459029108,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.026423543526981935,
+        "learned_stop_rate": 0.525
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.99,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998452491488703,
+        "mean_time_s_per_source": 600.0697984143478,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.0001865713910659826,
+        "learned_stop_rate": 0.007
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.995,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998452491488703,
+        "mean_time_s_per_source": 600.1817751630324,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.998,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998452491488703,
+        "mean_time_s_per_source": 600.1817751630324,
+        "baseline_mean_time_s_per_source": 600.1817751630324,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      }
+    ]
+  }
+}

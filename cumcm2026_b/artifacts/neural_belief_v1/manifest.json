@@ -1,0 +1,55 @@
+{
+  "schema": "belief-history-v1",
+  "feature_names": [
+    "target_x",
+    "target_y",
+    "delta_x",
+    "delta_y",
+    "channel_norm",
+    "channel_sin",
+    "channel_cos",
+    "is_measure",
+    "is_clear",
+    "channel_switched",
+    "result_no_signal",
+    "result_direction",
+    "result_near",
+    "result_clear_success",
+    "result_clear_failure",
+    "bearing_present",
+    "bearing_sin",
+    "bearing_cos",
+    "log_action_duration",
+    "log_virtual_time",
+    "cleared_fraction",
+    "is_q4"
+  ],
+  "hidden_state_is_input": false,
+  "splits": {
+    "train": {
+      "episodes": 12000,
+      "tokens": 3873971,
+      "complete_rate": 0.999,
+      "wall_time_s": 953.432208172977
+    },
+    "val": {
+      "episodes": 1500,
+      "tokens": 486678,
+      "complete_rate": 0.998,
+      "wall_time_s": 113.1826564669609
+    },
+    "test": {
+      "episodes": 1500,
+      "tokens": 484242,
+      "complete_rate": 0.9993333333333333,
+      "wall_time_s": 112.67669470608234
+    }
+  },
+  "config": {
+    "output": "data/belief_v1_4m",
+    "train_episodes": 12000,
+    "val_episodes": 1500,
+    "test_episodes": 1500,
+    "workers": 16
+  }
+}

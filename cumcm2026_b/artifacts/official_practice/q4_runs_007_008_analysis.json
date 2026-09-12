@@ -1,0 +1,46 @@
+{
+  "runs": [
+    {
+      "log": "artifacts\\official_practice\\q4_run_007_aggressive\\client.jsonl",
+      "sources_cleared": 10,
+      "virtual_time_s": 6554.63726,
+      "mean_time_s_per_source": 655.4637260000001,
+      "travel_m": 23408.186306093925,
+      "travel_time_s": 4681.637261218785,
+      "measure_actions": 312,
+      "measure_time_s": 1560.0,
+      "channel_switches": 263,
+      "switch_time_s": 263.0,
+      "clear_attempts": 10,
+      "clear_failures": 0,
+      "clear_time_s": 50.0,
+      "first_clear_time_s": 220.448636,
+      "max_leg_m": 2213.5943621178653,
+      "reconstruction_error_s": -1.2187847460154444e-06,
+      "clear_point_oracle_distance_m": 5927.64711471909,
+      "clear_point_oracle_time_s": 1235.529422943818,
+      "actual_to_oracle_ratio": 5.305124376870507
+    },
+    {
+      "log": "artifacts\\official_practice\\q4_run_008_aggressive\\client.jsonl",
+      "sources_cleared": 15,
+      "virtual_time_s": 6773.671799,
+      "mean_time_s_per_source": 451.5781199333333,
+      "travel_m": 24328.35899350221,
+      "travel_time_s": 4865.671798700442,
+      "measure_actions": 314,
+      "measure_time_s": 1570.0,
+      "channel_switches": 254,
+      "switch_time_s": 254.0,
+      "clear_attempts": 18,
+      "clear_failures": 3,
+      "clear_time_s": 84.0,
+      "first_clear_time_s": 293.6,
+      "max_leg_m": 1800.0,
+      "reconstruction_error_s": 2.9955754143884405e-07,
+      "clear_point_oracle_distance_m": 10127.234581351657,
+      "clear_point_oracle_time_s": 2100.4469162703313,
+      "actual_to_oracle_ratio": 3.2248716911292874
+    }
+  ]
+}

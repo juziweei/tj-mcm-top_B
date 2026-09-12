@@ -1,0 +1,71 @@
+{
+  "created_at_utc": "2026-09-11T08:37:36.850531+00:00",
+  "question": 4,
+  "mode": "official_practice",
+  "practice_journal": "vendor\\official_simulator\\Jammers-simulator\\JammersSimulatorData\\behavior-runs\\run-KECdbE-cWT1H0bC9ViXxkg\\behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "profile": "balanced",
+  "policy_options": {
+    "stop_probability": 0.97,
+    "centroid_clear_max_radius_m": 75.0,
+    "use_enclosing_circle_target": true
+  },
+  "official_statistics": {
+    "id": 5,
+    "practice_run_no": 2900491248544274749,
+    "case_code": "TUHK-WCM3-Y4DX-G2M3",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 12,
+    "measure_accepted_count": 300,
+    "virtual_time_us": 6574187082,
+    "program_run_duration_ms": 5778,
+    "channel_switch_count": 253,
+    "clear_failure_count": 11,
+    "jammer_count": 12,
+    "state": "confirmed"
+  },
+  "official_all_cleared": true,
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789115850211,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789115855990,
+    "virtual_time_s": 6574.187082,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 5.896274400001857,
+  "virtual_time_s": 6574.187082,
+  "cleared_count": 12,
+  "cleared_channels": [
+    1,
+    2,
+    6,
+    7,
+    8,
+    10,
+    11,
+    12,
+    14,
+    15,
+    16,
+    19
+  ],
+  "measure_actions": 300,
+  "discovery_measure_actions": 262,
+  "pursuit_measure_actions": 38,
+  "clear_actions": 23,
+  "travel_distance_m": 23640.935420156595,
+  "discovery_travel_distance_m": 12203.53980739365,
+  "pursuit_travel_distance_m": 11437.395612762944,
+  "discovery_positions": 24,
+  "unresolved_channels": [],
+  "posterior_all_sources_detected": 0.9702646724427881,
+  "stopped_by_probability": true,
+  "mean_virtual_time_per_cleared_source_s": 547.8489235000001
+}

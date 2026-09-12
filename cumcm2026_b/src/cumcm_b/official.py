@@ -2,8 +2,11 @@
 
 from __future__ import annotations
 
+from contextlib import closing
 import json
 from pathlib import Path
+import sqlite3
+import time
 from typing import Any
 
 from .client import SimulatorClient
@@ -48,6 +51,61 @@ def require_latest_practice_run(simulator_data_dir: str | Path) -> Path:
     if "api_opened" not in lifecycle_events:
         raise RuntimeError("practice run exists, but its local API is not open yet")
     return journal
+
+
+def latest_practice_statistics_id(database: str | Path) -> int:
+    """Read the current queue watermark without creating or modifying the DB."""
+
+    path = Path(database).resolve()
+    if not path.is_file():
+        return 0
+    with closing(
+        sqlite3.connect(f"file:{path.as_posix()}?mode=ro", uri=True)
+    ) as connection:
+        row = connection.execute(
+            "SELECT COALESCE(MAX(id), 0) FROM practice_statistics_tasks"
+        ).fetchone()
+    return int(row[0]) if row else 0
+
+
+def wait_for_practice_statistics(
+    database: str | Path,
+    *,
+    after_id: int,
+    team_no: str,
+    problem_no: int,
+    timeout_s: float = 10.0,
+) -> dict[str, Any] | None:
+    """Return the new authoritative practice row after the simulator exits."""
+
+    path = Path(database).resolve()
+    if not path.is_file():
+        return None
+    deadline = time.monotonic() + timeout_s
+    latest: dict[str, Any] | None = None
+    columns = (
+        "id, practice_run_no, case_code, end_reason, cleared_jammer_count, "
+        "measure_accepted_count, virtual_time_us, program_run_duration_ms, "
+        "channel_switch_count, clear_failure_count, jammer_count, state"
+    )
+    while True:
+        with closing(
+            sqlite3.connect(f"file:{path.as_posix()}?mode=ro", uri=True)
+        ) as connection:
+            connection.row_factory = sqlite3.Row
+            row = connection.execute(
+                f"SELECT {columns} FROM practice_statistics_tasks "
+                "WHERE id > ? AND team_no = ? AND problem_no = ? "
+                "ORDER BY id DESC LIMIT 1",
+                (after_id, team_no, problem_no),
+            ).fetchone()
+        if row is not None:
+            latest = dict(row)
+            if latest.get("state") == "confirmed":
+                return latest
+        if time.monotonic() >= deadline:
+            return latest
+        time.sleep(0.2)
 
 
 class OfficialEnvironmentAdapter:

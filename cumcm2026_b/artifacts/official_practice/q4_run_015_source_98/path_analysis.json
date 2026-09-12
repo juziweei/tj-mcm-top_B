@@ -1,0 +1,32 @@
+{
+  "log": "artifacts\\official_practice\\q4_run_015_source_98\\client_log.jsonl",
+  "sources": 13,
+  "cleared": 13,
+  "virtual_time_s": 5258.581981,
+  "virtual_time_s_per_true_source": 404.50630623076927,
+  "total_travel_m": 18067.909911609462,
+  "travel_time_share": 0.6871780254407509,
+  "execution_clear_route_m": 10449.639323343219,
+  "clear_position_oracle_m": 9064.249887655667,
+  "clear_order_excess_m": 1385.3894356875517,
+  "between_clear_detour_m": 1783.2852821547258,
+  "post_last_clear_travel_m": 5834.985306111517,
+  "last_first_detection_s": 3507.98492,
+  "last_successful_clear_s": 3844.58492,
+  "post_last_clear_virtual_time_s": 1413.9970610000005,
+  "clear_channels_in_order": [
+    4,
+    2,
+    12,
+    10,
+    11,
+    14,
+    9,
+    13,
+    1,
+    15,
+    17,
+    8,
+    20
+  ]
+}

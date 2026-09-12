@@ -1,0 +1,2534 @@
+{
+  "config": {
+    "episodes": 100,
+    "seed_start": 94001000,
+    "source_count": 16,
+    "directional_probability": 0.5,
+    "max_decisions": 2,
+    "alternatives_per_decision": 3,
+    "workers": 8
+  },
+  "semantics": "best full-episode result after one privilegedly shortlisted high-level decision replacement",
+  "baseline_complete_rate": 1.0,
+  "oracle_complete_rate": 1.0,
+  "baseline_mean_s_per_source": 356.8644028140093,
+  "oracle_mean_s_per_source": 307.1369814094161,
+  "mean_reduction_fraction": 0.1393454236748577,
+  "baseline_p95_s_per_source": 489.7631641481585,
+  "oracle_p95_s_per_source": 403.6723095729667,
+  "p95_reduction_fraction": 0.1757805831006687,
+  "episodes_improved": 92,
+  "counterfactual_rollouts": 599,
+  "wall_time_s": 254.80991369999992,
+  "gate": {
+    "oracle_complete_rate_required": 1.0,
+    "mean_reduction_required": 0.2,
+    "p95_reduction_required": 0.15,
+    "passed": false
+  },
+  "episodes": [
+    {
+      "seed": 94001000,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3741.1644107424404,
+        "mean_time_s_per_source": 233.82277567140252
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3741.1644107424404,
+        "mean_time_s_per_source": 233.82277567140252
+      },
+      "recorded_decisions": 13,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001001,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4156.4879302389245,
+        "mean_time_s_per_source": 259.7804956399328
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3884.705604395091,
+        "mean_time_s_per_source": 242.7941002746932
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 12,
+        "oracle_regret_score": 671.981561292647
+      }
+    },
+    {
+      "seed": 94001002,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7502.9754901255765,
+        "mean_time_s_per_source": 468.93596813284853
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4518.434749517503,
+        "mean_time_s_per_source": 282.40217184484396
+      },
+      "recorded_decisions": 29,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 10,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          -600.0
+        ],
+        "oracle_regret_score": 40000.0
+      }
+    },
+    {
+      "seed": 94001003,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4050.668461466435,
+        "mean_time_s_per_source": 253.1667788416522
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3967.0155030579526,
+        "mean_time_s_per_source": 247.93846894112204
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 8,
+        "kind": "pursuit",
+        "choice": 19,
+        "oracle_regret_score": 906.238657092126
+      }
+    },
+    {
+      "seed": 94001004,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 8264.721041926588,
+        "mean_time_s_per_source": 516.5450651204118
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7336.137277112891,
+        "mean_time_s_per_source": 458.5085798195557
+      },
+      "recorded_decisions": 33,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 23,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          1800.0
+        ],
+        "oracle_regret_score": 19310.93800125843
+      }
+    },
+    {
+      "seed": 94001005,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7577.227344325626,
+        "mean_time_s_per_source": 473.57670902035164
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6722.312299473833,
+        "mean_time_s_per_source": 420.1445187171146
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 12,
+        "kind": "discovery",
+        "choice": [
+          1800.0,
+          -600.0
+        ],
+        "oracle_regret_score": 37620.0819733142
+      }
+    },
+    {
+      "seed": 94001006,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5049.649707560951,
+        "mean_time_s_per_source": 315.60310672255946
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4961.417399296385,
+        "mean_time_s_per_source": 310.0885874560241
+      },
+      "recorded_decisions": 19,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 15,
+        "kind": "discovery",
+        "choice": [
+          -1200.0,
+          1200.0
+        ],
+        "oracle_regret_score": 8702.633403898973
+      }
+    },
+    {
+      "seed": 94001007,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6919.08740624224,
+        "mean_time_s_per_source": 432.44296289014
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6266.735865533035,
+        "mean_time_s_per_source": 391.6709915958147
+      },
+      "recorded_decisions": 27,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 11,
+        "kind": "discovery",
+        "choice": [
+          -1200.0,
+          -1800.0
+        ],
+        "oracle_regret_score": 17244.769672820985
+      }
+    },
+    {
+      "seed": 94001008,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5734.464016354194,
+        "mean_time_s_per_source": 358.40400102213715
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4674.580420799541,
+        "mean_time_s_per_source": 292.1612762999713
+      },
+      "recorded_decisions": 19,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          -600.0
+        ],
+        "oracle_regret_score": 19151.471862576145
+      }
+    },
+    {
+      "seed": 94001009,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3629.492425226968,
+        "mean_time_s_per_source": 226.8432765766855
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3629.492425226968,
+        "mean_time_s_per_source": 226.8432765766855
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001010,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5885.572643853762,
+        "mean_time_s_per_source": 367.84829024086014
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5703.636153192567,
+        "mean_time_s_per_source": 356.4772595745354
+      },
+      "recorded_decisions": 18,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 15,
+        "kind": "discovery",
+        "choice": [
+          1800.0,
+          1200.0
+        ],
+        "oracle_regret_score": 9849.774068562028
+      }
+    },
+    {
+      "seed": 94001011,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7413.229907717208,
+        "mean_time_s_per_source": 463.3268692323255
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6412.803523380701,
+        "mean_time_s_per_source": 400.80022021129383
+      },
+      "recorded_decisions": 26,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 16,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          600.0
+        ],
+        "oracle_regret_score": 29590.497689027103
+      }
+    },
+    {
+      "seed": 94001012,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4342.310206502854,
+        "mean_time_s_per_source": 271.3943879064284
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4306.353597181965,
+        "mean_time_s_per_source": 269.1470998238728
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          700.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001013,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4854.383450364733,
+        "mean_time_s_per_source": 303.3989656477958
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4446.50055688862,
+        "mean_time_s_per_source": 277.90628480553875
+      },
+      "recorded_decisions": 14,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 10,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          1200.0
+        ],
+        "oracle_regret_score": 19384.70535620341
+      }
+    },
+    {
+      "seed": 94001014,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3971.1499426690016,
+        "mean_time_s_per_source": 248.1968714168126
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3900.758484332654,
+        "mean_time_s_per_source": 243.79740527079088
+      },
+      "recorded_decisions": 13,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 9,
+        "kind": "pursuit",
+        "choice": 12,
+        "oracle_regret_score": 218.57263567853448
+      }
+    },
+    {
+      "seed": 94001015,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6537.718687508087,
+        "mean_time_s_per_source": 408.60741796925544
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6249.649848027133,
+        "mean_time_s_per_source": 390.6031155016958
+      },
+      "recorded_decisions": 23,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 18,
+        "kind": "discovery",
+        "choice": [
+          1400.0,
+          700.0
+        ],
+        "oracle_regret_score": 19196.32972633654
+      }
+    },
+    {
+      "seed": 94001016,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5613.361178076134,
+        "mean_time_s_per_source": 350.83507362975837
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5170.964110513827,
+        "mean_time_s_per_source": 323.1852569071142
+      },
+      "recorded_decisions": 18,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 14,
+        "kind": "discovery",
+        "choice": [
+          -2100.0,
+          -700.0
+        ],
+        "oracle_regret_score": 10231.081177837219
+      }
+    },
+    {
+      "seed": 94001017,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5096.536632405633,
+        "mean_time_s_per_source": 318.53353952535207
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4935.422892565984,
+        "mean_time_s_per_source": 308.463930785374
+      },
+      "recorded_decisions": 19,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 16,
+        "kind": "discovery",
+        "choice": [
+          -1400.0,
+          -1400.0
+        ],
+        "oracle_regret_score": 10218.35510369829
+      }
+    },
+    {
+      "seed": 94001018,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5848.050456566046,
+        "mean_time_s_per_source": 365.50315353537786
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5515.87548635191,
+        "mean_time_s_per_source": 344.74221789699436
+      },
+      "recorded_decisions": 22,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 18,
+        "kind": "discovery",
+        "choice": [
+          2100.0,
+          -700.0
+        ],
+        "oracle_regret_score": 8722.987665710702
+      }
+    },
+    {
+      "seed": 94001019,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4372.444145911389,
+        "mean_time_s_per_source": 273.2777591194618
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4175.890815048203,
+        "mean_time_s_per_source": 260.9931759405127
+      },
+      "recorded_decisions": 13,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 8,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          1800.0
+        ],
+        "oracle_regret_score": 9416.930913461661
+      }
+    },
+    {
+      "seed": 94001020,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6266.596221362594,
+        "mean_time_s_per_source": 391.66226383516215
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5194.585696325165,
+        "mean_time_s_per_source": 324.66160602032284
+      },
+      "recorded_decisions": 17,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          700.0
+        ],
+        "oracle_regret_score": 39400.0
+      }
+    },
+    {
+      "seed": 94001021,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7014.74153377133,
+        "mean_time_s_per_source": 438.42134586070813
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4572.055385447787,
+        "mean_time_s_per_source": 285.75346159048667
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          0.0
+        ],
+        "oracle_regret_score": 39400.0
+      }
+    },
+    {
+      "seed": 94001022,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4955.997853307214,
+        "mean_time_s_per_source": 309.7498658317009
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4955.997853307214,
+        "mean_time_s_per_source": 309.7498658317009
+      },
+      "recorded_decisions": 14,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001023,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7628.570946150668,
+        "mean_time_s_per_source": 476.7856841344167
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5970.819461443044,
+        "mean_time_s_per_source": 373.17621634019025
+      },
+      "recorded_decisions": 24,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          700.0,
+          700.0
+        ],
+        "oracle_regret_score": 19400.0
+      }
+    },
+    {
+      "seed": 94001024,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5473.016918045536,
+        "mean_time_s_per_source": 342.063557377846
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4170.813927768461,
+        "mean_time_s_per_source": 260.67587048552883
+      },
+      "recorded_decisions": 17,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 9,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          600.0
+        ],
+        "oracle_regret_score": 21157.074417289572
+      }
+    },
+    {
+      "seed": 94001025,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6990.35619288434,
+        "mean_time_s_per_source": 436.89726205527126
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5523.151764457377,
+        "mean_time_s_per_source": 345.19698527858606
+      },
+      "recorded_decisions": 29,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 14,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          600.0
+        ],
+        "oracle_regret_score": 18865.247584249853
+      }
+    },
+    {
+      "seed": 94001026,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3119.4337249782407,
+        "mean_time_s_per_source": 194.96460781114004
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 2900.0959039860413,
+        "mean_time_s_per_source": 181.25599399912758
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 9,
+        "kind": "discovery",
+        "choice": [
+          1400.0,
+          0.0
+        ],
+        "oracle_regret_score": 9411.048318461126
+      }
+    },
+    {
+      "seed": 94001027,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6300.254593000681,
+        "mean_time_s_per_source": 393.76591206254255
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6300.254593000681,
+        "mean_time_s_per_source": 393.76591206254255
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001028,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3734.6866767658535,
+        "mean_time_s_per_source": 233.41791729786584
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3320.7565805750537,
+        "mean_time_s_per_source": 207.54728628594086
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 11,
+        "oracle_regret_score": 616.089571649651
+      }
+    },
+    {
+      "seed": 94001029,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7108.6919927679655,
+        "mean_time_s_per_source": 444.29324954799785
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5294.113453080599,
+        "mean_time_s_per_source": 330.88209081753746
+      },
+      "recorded_decisions": 24,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 8,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          600.0
+        ],
+        "oracle_regret_score": 48200.0
+      }
+    },
+    {
+      "seed": 94001030,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6283.368276708557,
+        "mean_time_s_per_source": 392.7105172942848
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5734.854933331007,
+        "mean_time_s_per_source": 358.4284333331879
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -600.0
+        ],
+        "oracle_regret_score": 39300.0
+      }
+    },
+    {
+      "seed": 94001031,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6815.075023543467,
+        "mean_time_s_per_source": 425.9421889714667
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5052.740744310419,
+        "mean_time_s_per_source": 315.7962965194012
+      },
+      "recorded_decisions": 32,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 18,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          1200.0
+        ],
+        "oracle_regret_score": 19326.136624629406
+      }
+    },
+    {
+      "seed": 94001032,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5351.12773308015,
+        "mean_time_s_per_source": 334.4454833175094
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5228.484154345678,
+        "mean_time_s_per_source": 326.78025964660486
+      },
+      "recorded_decisions": 19,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 16,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          600.0
+        ],
+        "oracle_regret_score": 9868.217893672365
+      }
+    },
+    {
+      "seed": 94001033,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5621.348328628553,
+        "mean_time_s_per_source": 351.33427053928455
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5312.81705931712,
+        "mean_time_s_per_source": 332.05106620732
+      },
+      "recorded_decisions": 17,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 14,
+        "kind": "discovery",
+        "choice": [
+          -700.0,
+          0.0
+        ],
+        "oracle_regret_score": 10581.89761966726
+      }
+    },
+    {
+      "seed": 94001034,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4545.200537152677,
+        "mean_time_s_per_source": 284.0750335720423
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4421.831565312883,
+        "mean_time_s_per_source": 276.3644728320552
+      },
+      "recorded_decisions": 14,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 10,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          -1400.0
+        ],
+        "oracle_regret_score": 18822.50522951108
+      }
+    },
+    {
+      "seed": 94001035,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5367.136192718903,
+        "mean_time_s_per_source": 335.4460120449314
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5325.954975684699,
+        "mean_time_s_per_source": 332.8721859802937
+      },
+      "recorded_decisions": 24,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 20,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          -1200.0
+        ],
+        "oracle_regret_score": 19140.727987000857
+      }
+    },
+    {
+      "seed": 94001036,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5702.002353967549,
+        "mean_time_s_per_source": 356.37514712297184
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5303.04656719543,
+        "mean_time_s_per_source": 331.44041044971436
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 13,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          600.0
+        ],
+        "oracle_regret_score": 9688.865690577677
+      }
+    },
+    {
+      "seed": 94001037,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5759.654214892096,
+        "mean_time_s_per_source": 359.978388430756
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4812.65732430143,
+        "mean_time_s_per_source": 300.7910827688394
+      },
+      "recorded_decisions": 20,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 7,
+        "kind": "discovery",
+        "choice": [
+          700.0,
+          -700.0
+        ],
+        "oracle_regret_score": 38480.34989090224
+      }
+    },
+    {
+      "seed": 94001038,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4223.7812528791055,
+        "mean_time_s_per_source": 263.9863283049441
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3861.639642114212,
+        "mean_time_s_per_source": 241.35247763213826
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 3,
+        "kind": "pursuit",
+        "choice": 17,
+        "oracle_regret_score": 583.0693871787364
+      }
+    },
+    {
+      "seed": 94001039,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5740.3848050462475,
+        "mean_time_s_per_source": 358.77405031539047
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4639.549608553943,
+        "mean_time_s_per_source": 289.9718505346214
+      },
+      "recorded_decisions": 18,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          -600.0
+        ],
+        "oracle_regret_score": 49300.0
+      }
+    },
+    {
+      "seed": 94001040,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4813.803925651706,
+        "mean_time_s_per_source": 300.8627453532316
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4461.235562836338,
+        "mean_time_s_per_source": 278.82722267727115
+      },
+      "recorded_decisions": 15,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          0.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001041,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7025.239318010578,
+        "mean_time_s_per_source": 439.07745737566114
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6038.283755806073,
+        "mean_time_s_per_source": 377.39273473787955
+      },
+      "recorded_decisions": 29,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          0.0
+        ],
+        "oracle_regret_score": 29400.0
+      }
+    },
+    {
+      "seed": 94001042,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4046.7457312433967,
+        "mean_time_s_per_source": 252.9216082027123
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4046.7457312433967,
+        "mean_time_s_per_source": 252.9216082027123
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001043,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7152.46295640929,
+        "mean_time_s_per_source": 447.02893477558064
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6608.877420014184,
+        "mean_time_s_per_source": 413.0548387508865
+      },
+      "recorded_decisions": 22,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 17,
+        "kind": "discovery",
+        "choice": [
+          1400.0,
+          700.0
+        ],
+        "oracle_regret_score": 9888.255181904608
+      }
+    },
+    {
+      "seed": 94001044,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6771.557198145869,
+        "mean_time_s_per_source": 423.2223248841168
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6021.25110709018,
+        "mean_time_s_per_source": 376.32819419313626
+      },
+      "recorded_decisions": 28,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          0.0
+        ],
+        "oracle_regret_score": 29400.0
+      }
+    },
+    {
+      "seed": 94001045,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7005.537744370192,
+        "mean_time_s_per_source": 437.846109023137
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5608.872978348075,
+        "mean_time_s_per_source": 350.5545611467547
+      },
+      "recorded_decisions": 30,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 9,
+        "kind": "discovery",
+        "choice": [
+          1800.0,
+          -600.0
+        ],
+        "oracle_regret_score": 19425.963678954362
+      }
+    },
+    {
+      "seed": 94001046,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6128.552084573204,
+        "mean_time_s_per_source": 383.0345052858253
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5266.781845921245,
+        "mean_time_s_per_source": 329.1738653700778
+      },
+      "recorded_decisions": 22,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 11,
+        "kind": "discovery",
+        "choice": [
+          -1400.0,
+          -1400.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001047,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5756.3632060991185,
+        "mean_time_s_per_source": 359.7727003811949
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5632.0547590544265,
+        "mean_time_s_per_source": 352.00342244090166
+      },
+      "recorded_decisions": 22,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 12,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -1200.0
+        ],
+        "oracle_regret_score": 29218.976091425167
+      }
+    },
+    {
+      "seed": 94001048,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6084.031288292304,
+        "mean_time_s_per_source": 380.251955518269
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3964.0350259174547,
+        "mean_time_s_per_source": 247.75218911984092
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          0.0
+        ],
+        "oracle_regret_score": 39400.0
+      }
+    },
+    {
+      "seed": 94001049,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6058.8026335989525,
+        "mean_time_s_per_source": 378.67516459993453
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5615.202107710531,
+        "mean_time_s_per_source": 350.9501317319082
+      },
+      "recorded_decisions": 23,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 14,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -1200.0
+        ],
+        "oracle_regret_score": 58757.779489814406
+      }
+    },
+    {
+      "seed": 94001050,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7987.125213993655,
+        "mean_time_s_per_source": 499.19532587460344
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6110.867431583571,
+        "mean_time_s_per_source": 381.92921447397316
+      },
+      "recorded_decisions": 32,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          600.0
+        ],
+        "oracle_regret_score": 39151.471862576145
+      }
+    },
+    {
+      "seed": 94001051,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6193.387392267906,
+        "mean_time_s_per_source": 387.0867120167441
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5574.516523906351,
+        "mean_time_s_per_source": 348.4072827441469
+      },
+      "recorded_decisions": 21,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -700.0,
+          700.0
+        ],
+        "oracle_regret_score": 49151.471862576145
+      }
+    },
+    {
+      "seed": 94001052,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6147.413726861429,
+        "mean_time_s_per_source": 384.2133579288393
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5725.191675842869,
+        "mean_time_s_per_source": 357.8244797401793
+      },
+      "recorded_decisions": 27,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 23,
+        "kind": "discovery",
+        "choice": [
+          -1800.0,
+          0.0
+        ],
+        "oracle_regret_score": 10121.110255092797
+      }
+    },
+    {
+      "seed": 94001053,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5502.702418877867,
+        "mean_time_s_per_source": 343.9189011798667
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5426.616285661896,
+        "mean_time_s_per_source": 339.1635178538685
+      },
+      "recorded_decisions": 20,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 9,
+        "kind": "discovery",
+        "choice": [
+          700.0,
+          -1400.0
+        ],
+        "oracle_regret_score": 29258.359213500127
+      }
+    },
+    {
+      "seed": 94001054,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7836.210626370536,
+        "mean_time_s_per_source": 489.7631641481585
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6315.223648980303,
+        "mean_time_s_per_source": 394.7014780612689
+      },
+      "recorded_decisions": 26,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 11,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          700.0
+        ],
+        "oracle_regret_score": 9464.911064067352
+      }
+    },
+    {
+      "seed": 94001055,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5818.172587532378,
+        "mean_time_s_per_source": 363.63578672077364
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5211.778143781116,
+        "mean_time_s_per_source": 325.73613398631977
+      },
+      "recorded_decisions": 23,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 11,
+        "kind": "discovery",
+        "choice": [
+          700.0,
+          1400.0
+        ],
+        "oracle_regret_score": 10000.115142142098
+      }
+    },
+    {
+      "seed": 94001056,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4675.923033311465,
+        "mean_time_s_per_source": 292.24518958196654
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4509.067012913028,
+        "mean_time_s_per_source": 281.8166883070642
+      },
+      "recorded_decisions": 11,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 2,
+        "kind": "pursuit",
+        "choice": 1,
+        "oracle_regret_score": 383.82879464842125
+      }
+    },
+    {
+      "seed": 94001057,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5817.962304103057,
+        "mean_time_s_per_source": 363.6226440064411
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5670.476763942137,
+        "mean_time_s_per_source": 354.40479774638357
+      },
+      "recorded_decisions": 26,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 22,
+        "kind": "discovery",
+        "choice": [
+          -1800.0,
+          0.0
+        ],
+        "oracle_regret_score": 8941.201925974745
+      }
+    },
+    {
+      "seed": 94001058,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6042.217592728558,
+        "mean_time_s_per_source": 377.6385995455349
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5700.940940888525,
+        "mean_time_s_per_source": 356.3088088055328
+      },
+      "recorded_decisions": 20,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          0.0
+        ],
+        "oracle_regret_score": 39400.0
+      }
+    },
+    {
+      "seed": 94001059,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7895.615385223086,
+        "mean_time_s_per_source": 493.4759615764429
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5142.714666017958,
+        "mean_time_s_per_source": 321.41966662612236
+      },
+      "recorded_decisions": 32,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 13,
+        "kind": "discovery",
+        "choice": [
+          -1200.0,
+          -1200.0
+        ],
+        "oracle_regret_score": 10418.334617360802
+      }
+    },
+    {
+      "seed": 94001060,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5390.26020357462,
+        "mean_time_s_per_source": 336.8912627234138
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4700.958485878106,
+        "mean_time_s_per_source": 293.80990536738165
+      },
+      "recorded_decisions": 11,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 2,
+        "oracle_regret_score": 368.77244736147463
+      }
+    },
+    {
+      "seed": 94001061,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3980.7012488747037,
+        "mean_time_s_per_source": 248.79382805466898
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3522.9339032442804,
+        "mean_time_s_per_source": 220.18336895276752
+      },
+      "recorded_decisions": 14,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 11,
+        "kind": "discovery",
+        "choice": [
+          -1200.0,
+          1200.0
+        ],
+        "oracle_regret_score": 10242.502675467951
+      }
+    },
+    {
+      "seed": 94001062,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6662.289175171248,
+        "mean_time_s_per_source": 416.393073448203
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4735.000606389354,
+        "mean_time_s_per_source": 295.93753789933464
+      },
+      "recorded_decisions": 27,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          1200.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001063,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7854.013675397961,
+        "mean_time_s_per_source": 490.8758547123726
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4683.968961482969,
+        "mean_time_s_per_source": 292.74806009268553
+      },
+      "recorded_decisions": 28,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -1400.0,
+          -700.0
+        ],
+        "oracle_regret_score": 48434.75241575015
+      }
+    },
+    {
+      "seed": 94001064,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6629.905544479268,
+        "mean_time_s_per_source": 414.3690965299543
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6403.913011171203,
+        "mean_time_s_per_source": 400.2445631982002
+      },
+      "recorded_decisions": 19,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 16,
+        "kind": "discovery",
+        "choice": [
+          -700.0,
+          1400.0
+        ],
+        "oracle_regret_score": 9424.828759089465
+      }
+    },
+    {
+      "seed": 94001065,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3827.6668358947013,
+        "mean_time_s_per_source": 239.22917724341883
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3797.3791243902538,
+        "mean_time_s_per_source": 237.33619527439086
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 3,
+        "kind": "pursuit",
+        "choice": 8,
+        "oracle_regret_score": 110.45853791610091
+      }
+    },
+    {
+      "seed": 94001066,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6610.174731075059,
+        "mean_time_s_per_source": 413.1359206921912
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5285.525617596962,
+        "mean_time_s_per_source": 330.3453510998101
+      },
+      "recorded_decisions": 23,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          600.0
+        ],
+        "oracle_regret_score": 28658.359213500124
+      }
+    },
+    {
+      "seed": 94001067,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4916.067881124651,
+        "mean_time_s_per_source": 307.25424257029067
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3633.372450762814,
+        "mean_time_s_per_source": 227.08577817267587
+      },
+      "recorded_decisions": 15,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          600.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001068,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4599.078291682999,
+        "mean_time_s_per_source": 287.44239323018746
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4109.241708159829,
+        "mean_time_s_per_source": 256.8276067599893
+      },
+      "recorded_decisions": 18,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 10,
+        "kind": "discovery",
+        "choice": [
+          -700.0,
+          -2100.0
+        ],
+        "oracle_regret_score": 18113.3504117365
+      }
+    },
+    {
+      "seed": 94001069,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3896.834101484295,
+        "mean_time_s_per_source": 243.55213134276843
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3381.0418704471695,
+        "mean_time_s_per_source": 211.3151169029481
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 2,
+        "oracle_regret_score": 548.6454493716757
+      }
+    },
+    {
+      "seed": 94001070,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6151.876234815082,
+        "mean_time_s_per_source": 384.49226467594264
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5408.775241390072,
+        "mean_time_s_per_source": 338.0484525868795
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -600.0
+        ],
+        "oracle_regret_score": 59300.0
+      }
+    },
+    {
+      "seed": 94001071,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6932.446733539319,
+        "mean_time_s_per_source": 433.27792084620745
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4886.9622497645705,
+        "mean_time_s_per_source": 305.43514061028566
+      },
+      "recorded_decisions": 25,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -700.0,
+          -700.0
+        ],
+        "oracle_regret_score": 29151.471862576145
+      }
+    },
+    {
+      "seed": 94001072,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6769.460186315911,
+        "mean_time_s_per_source": 423.09126164474446
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4545.647942972423,
+        "mean_time_s_per_source": 284.10299643577645
+      },
+      "recorded_decisions": 24,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 8,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          1200.0
+        ],
+        "oracle_regret_score": 10292.072494542415
+      }
+    },
+    {
+      "seed": 94001073,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4397.529309948511,
+        "mean_time_s_per_source": 274.8455818717819
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4397.529309948511,
+        "mean_time_s_per_source": 274.8455818717819
+      },
+      "recorded_decisions": 13,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001074,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5303.282582674004,
+        "mean_time_s_per_source": 331.4551614171252
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4488.372322577721,
+        "mean_time_s_per_source": 280.5232701611076
+      },
+      "recorded_decisions": 21,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          700.0
+        ],
+        "oracle_regret_score": 19300.0
+      }
+    },
+    {
+      "seed": 94001075,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6882.898199671373,
+        "mean_time_s_per_source": 430.1811374794608
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4139.062891238789,
+        "mean_time_s_per_source": 258.6914307024243
+      },
+      "recorded_decisions": 28,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 10,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          -1200.0
+        ],
+        "oracle_regret_score": 9603.550882491156
+      }
+    },
+    {
+      "seed": 94001076,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5884.948176888328,
+        "mean_time_s_per_source": 367.8092610555205
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5554.198868285632,
+        "mean_time_s_per_source": 347.137429267852
+      },
+      "recorded_decisions": 23,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 19,
+        "kind": "discovery",
+        "choice": [
+          -1200.0,
+          -600.0
+        ],
+        "oracle_regret_score": 9233.992943773137
+      }
+    },
+    {
+      "seed": 94001077,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6841.637517368075,
+        "mean_time_s_per_source": 427.6023448355047
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5291.138196136781,
+        "mean_time_s_per_source": 330.6961372585488
+      },
+      "recorded_decisions": 29,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 13,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          -600.0
+        ],
+        "oracle_regret_score": 29036.669234721605
+      }
+    },
+    {
+      "seed": 94001078,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6825.376782863264,
+        "mean_time_s_per_source": 426.586048928954
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6458.756953167467,
+        "mean_time_s_per_source": 403.6723095729667
+      },
+      "recorded_decisions": 30,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 17,
+        "kind": "discovery",
+        "choice": [
+          1400.0,
+          -1400.0
+        ],
+        "oracle_regret_score": 10000.0
+      }
+    },
+    {
+      "seed": 94001079,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7921.343083887639,
+        "mean_time_s_per_source": 495.08394274297746
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6562.82807154584,
+        "mean_time_s_per_source": 410.176754471615
+      },
+      "recorded_decisions": 22,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -600.0
+        ],
+        "oracle_regret_score": 19400.0
+      }
+    },
+    {
+      "seed": 94001080,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3430.3296332005857,
+        "mean_time_s_per_source": 214.3956020750366
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3172.714867292912,
+        "mean_time_s_per_source": 198.294679205807
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 8,
+        "oracle_regret_score": 304.90753201972
+      }
+    },
+    {
+      "seed": 94001081,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3940.8247278840013,
+        "mean_time_s_per_source": 246.30154549275008
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3940.8247278840013,
+        "mean_time_s_per_source": 246.30154549275008
+      },
+      "recorded_decisions": 13,
+      "counterfactual_rollouts": 5,
+      "best_override": null
+    },
+    {
+      "seed": 94001082,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4153.411932192398,
+        "mean_time_s_per_source": 259.5882457620249
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3717.772957577113,
+        "mean_time_s_per_source": 232.36080984856957
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          600.0
+        ],
+        "oracle_regret_score": 19400.0
+      }
+    },
+    {
+      "seed": 94001083,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4530.218171107927,
+        "mean_time_s_per_source": 283.13863569424547
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4065.2473260792954,
+        "mean_time_s_per_source": 254.07795787995596
+      },
+      "recorded_decisions": 16,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 12,
+        "kind": "discovery",
+        "choice": [
+          1400.0,
+          -1400.0
+        ],
+        "oracle_regret_score": 10000.0
+      }
+    },
+    {
+      "seed": 94001084,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3947.853115871166,
+        "mean_time_s_per_source": 246.7408197419479
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3498.2977613505063,
+        "mean_time_s_per_source": 218.64361008440665
+      },
+      "recorded_decisions": 11,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 18,
+        "oracle_regret_score": 777.6010499789622
+      }
+    },
+    {
+      "seed": 94001085,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5750.067278640462,
+        "mean_time_s_per_source": 359.3792049150289
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4062.949432774771,
+        "mean_time_s_per_source": 253.9343395484232
+      },
+      "recorded_decisions": 22,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -600.0
+        ],
+        "oracle_regret_score": 29400.0
+      }
+    },
+    {
+      "seed": 94001086,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7650.95349993893,
+        "mean_time_s_per_source": 478.1845937461831
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5380.732594544623,
+        "mean_time_s_per_source": 336.2957871590389
+      },
+      "recorded_decisions": 29,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -700.0,
+          -700.0
+        ],
+        "oracle_regret_score": 39010.05050633883
+      }
+    },
+    {
+      "seed": 94001087,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4843.7725078529575,
+        "mean_time_s_per_source": 302.73578174080984
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4669.355157420257,
+        "mean_time_s_per_source": 291.83469733876603
+      },
+      "recorded_decisions": 21,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 13,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          1200.0
+        ],
+        "oracle_regret_score": 19446.046853631928
+      }
+    },
+    {
+      "seed": 94001088,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5511.216444653614,
+        "mean_time_s_per_source": 344.4510277908509
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4072.9298760348966,
+        "mean_time_s_per_source": 254.55811725218103
+      },
+      "recorded_decisions": 21,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 6,
+        "kind": "discovery",
+        "choice": [
+          1200.0,
+          0.0
+        ],
+        "oracle_regret_score": 29696.489878930395
+      }
+    },
+    {
+      "seed": 94001089,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6613.901194695553,
+        "mean_time_s_per_source": 413.3688246684721
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5069.070712546098,
+        "mean_time_s_per_source": 316.8169195341311
+      },
+      "recorded_decisions": 21,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 11,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          -1200.0
+        ],
+        "oracle_regret_score": 19769.451754926617
+      }
+    },
+    {
+      "seed": 94001090,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5976.603821416593,
+        "mean_time_s_per_source": 373.53773883853705
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4484.752115403221,
+        "mean_time_s_per_source": 280.2970072127013
+      },
+      "recorded_decisions": 18,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          600.0
+        ],
+        "oracle_regret_score": 29010.050506338826
+      }
+    },
+    {
+      "seed": 94001091,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4420.037149195525,
+        "mean_time_s_per_source": 276.2523218247203
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4172.544697513377,
+        "mean_time_s_per_source": 260.7840435945861
+      },
+      "recorded_decisions": 16,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 12,
+        "kind": "discovery",
+        "choice": [
+          2100.0,
+          0.0
+        ],
+        "oracle_regret_score": 19271.52297013099
+      }
+    },
+    {
+      "seed": 94001092,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3476.8972995349027,
+        "mean_time_s_per_source": 217.30608122093142
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3141.873550810968,
+        "mean_time_s_per_source": 196.3670969256855
+      },
+      "recorded_decisions": 13,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          0.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001093,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4186.023810611104,
+        "mean_time_s_per_source": 261.626488163194
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4186.023810611104,
+        "mean_time_s_per_source": 261.626488163194
+      },
+      "recorded_decisions": 14,
+      "counterfactual_rollouts": 6,
+      "best_override": null
+    },
+    {
+      "seed": 94001094,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6819.922535922578,
+        "mean_time_s_per_source": 426.24515849516115
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5103.495606686102,
+        "mean_time_s_per_source": 318.9684754178814
+      },
+      "recorded_decisions": 26,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          -600.0,
+          0.0
+        ],
+        "oracle_regret_score": 9400.0
+      }
+    },
+    {
+      "seed": 94001095,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4798.208577814461,
+        "mean_time_s_per_source": 299.8880361134038
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4537.719157717376,
+        "mean_time_s_per_source": 283.607447357336
+      },
+      "recorded_decisions": 12,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          -600.0
+        ],
+        "oracle_regret_score": 49300.0
+      }
+    },
+    {
+      "seed": 94001096,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4869.448798968587,
+        "mean_time_s_per_source": 304.34054993553667
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4464.117878716795,
+        "mean_time_s_per_source": 279.00736741979966
+      },
+      "recorded_decisions": 14,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 10,
+        "kind": "discovery",
+        "choice": [
+          600.0,
+          600.0
+        ],
+        "oracle_regret_score": 10566.606285135513
+      }
+    },
+    {
+      "seed": 94001097,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6720.803687229104,
+        "mean_time_s_per_source": 420.050230451819
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5704.391230714954,
+        "mean_time_s_per_source": 356.5244519196846
+      },
+      "recorded_decisions": 20,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          700.0,
+          -700.0
+        ],
+        "oracle_regret_score": 29151.471862576145
+      }
+    },
+    {
+      "seed": 94001098,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 7092.941020328737,
+        "mean_time_s_per_source": 443.30881377054607
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 6634.467634469763,
+        "mean_time_s_per_source": 414.65422715436017
+      },
+      "recorded_decisions": 24,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 17,
+        "kind": "discovery",
+        "choice": [
+          -1400.0,
+          0.0
+        ],
+        "oracle_regret_score": 38302.94372515228
+      }
+    },
+    {
+      "seed": 94001099,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4649.871573523578,
+        "mean_time_s_per_source": 290.61697334522364
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4286.47536840975,
+        "mean_time_s_per_source": 267.9047105256094
+      },
+      "recorded_decisions": 10,
+      "counterfactual_rollouts": 6,
+      "best_override": {
+        "decision_index": 0,
+        "kind": "discovery",
+        "choice": [
+          0.0,
+          600.0
+        ],
+        "oracle_regret_score": 19400.0
+      }
+    }
+  ]
+}

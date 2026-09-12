@@ -1,0 +1,59 @@
+{
+  "created_at_utc": "2026-09-11T12:48:44.754186+00:00",
+  "question": 3,
+  "mode": "official_practice",
+  "practice_journal": "vendor\\official_simulator\\Jammers-simulator\\JammersSimulatorData\\behavior-runs\\run-siBPDKBD_id1VFr1OMRZHQ\\behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "strategy": "joint",
+  "official_statistics": {
+    "id": 18,
+    "practice_run_no": 3611973816798150183,
+    "case_code": "FWQZ-JJ8R-FERY-Q4PV",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 10,
+    "measure_accepted_count": 210,
+    "virtual_time_us": 4082469532,
+    "program_run_duration_ms": 2508,
+    "channel_switch_count": 159,
+    "clear_failure_count": 0,
+    "jammer_count": 10,
+    "state": "confirmed"
+  },
+  "official_all_cleared": true,
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789130921588,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789130924096,
+    "virtual_time_s": 4082.469532,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 2.587235099999816,
+  "virtual_time_s": 4082.469532,
+  "cleared_count": 10,
+  "cleared_channels": [
+    1,
+    2,
+    6,
+    7,
+    9,
+    11,
+    15,
+    16,
+    17,
+    20
+  ],
+  "measure_actions": 210,
+  "clear_actions": 10,
+  "travel_distance_m": 14117.347661617829,
+  "discovery_measure_actions": 155,
+  "pursuit_measure_actions": 55,
+  "posterior_all_sources_detected": 0.99865820951913,
+  "mean_virtual_time_per_cleared_source_s": 408.2469532
+}

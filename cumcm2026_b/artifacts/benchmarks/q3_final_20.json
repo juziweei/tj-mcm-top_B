@@ -1,0 +1,13 @@
+{
+  "episodes": 20,
+  "source_clear_rate": 1.0,
+  "complete_case_rate": 1.0,
+  "mean_episode_mean_time_s": 689.2924477607147,
+  "median_episode_mean_time_s": 636.1713596277829,
+  "p95_episode_mean_time_s": 1303.5728295650838,
+  "mean_travel_m": 27868.32486300995,
+  "mean_episode_wall_time_s": 17.248530969999774,
+  "p95_episode_wall_time_s": 39.17039730000033,
+  "max_episode_wall_time_s": 39.764352000000144,
+  "failures": []
+}

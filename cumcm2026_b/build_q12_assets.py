@@ -5,9 +5,13 @@ from __future__ import annotations
 import json
 import math
 from pathlib import Path
+import sys
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+
+ROOT = Path(__file__).resolve().parent
+sys.path.insert(0, str(ROOT / "src"))
 
 from cumcm_b.geometry import (
     bearing_feasible_polygon,
@@ -22,7 +26,6 @@ from cumcm_b.planning import (
 )
 
 
-ROOT = Path(__file__).resolve().parent
 OUT = ROOT / "artifacts" / "q12_paper"
 TARGET_RADIUS = 1800.0
 MAX_RECEIVE_RADIUS = 1500.0

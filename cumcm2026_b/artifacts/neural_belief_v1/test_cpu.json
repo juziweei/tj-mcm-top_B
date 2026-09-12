@@ -1,0 +1,246 @@
+{
+  "device": "cpu",
+  "episodes": 1500,
+  "tokens": 484242,
+  "inference_wall_s": 10.947777815163136,
+  "mean_inference_ms_per_episode": 7.29851854344209,
+  "completion_brier": 0.05910130590200424,
+  "completion_calibration": [
+    {
+      "lower": 0.0,
+      "upper": 0.1,
+      "samples": 313900,
+      "mean_probability": 0.002370147267356515,
+      "empirical_complete": 0.0005670595731124562
+    },
+    {
+      "lower": 0.1,
+      "upper": 0.2,
+      "samples": 8772,
+      "mean_probability": 0.15043240785598755,
+      "empirical_complete": 0.09815321477428181
+    },
+    {
+      "lower": 0.2,
+      "upper": 0.30000000000000004,
+      "samples": 11749,
+      "mean_probability": 0.2542416751384735,
+      "empirical_complete": 0.22657247425312793
+    },
+    {
+      "lower": 0.30000000000000004,
+      "upper": 0.4,
+      "samples": 18139,
+      "mean_probability": 0.35258370637893677,
+      "empirical_complete": 0.3348585919841226
+    },
+    {
+      "lower": 0.4,
+      "upper": 0.5,
+      "samples": 20764,
+      "mean_probability": 0.4494154453277588,
+      "empirical_complete": 0.4460604893084184
+    },
+    {
+      "lower": 0.5,
+      "upper": 0.6000000000000001,
+      "samples": 19078,
+      "mean_probability": 0.54884272813797,
+      "empirical_complete": 0.5283048537582555
+    },
+    {
+      "lower": 0.6000000000000001,
+      "upper": 0.7000000000000001,
+      "samples": 17245,
+      "mean_probability": 0.6494429707527161,
+      "empirical_complete": 0.6379820237750072
+    },
+    {
+      "lower": 0.7000000000000001,
+      "upper": 0.8,
+      "samples": 17589,
+      "mean_probability": 0.7507102489471436,
+      "empirical_complete": 0.7363693217351754
+    },
+    {
+      "lower": 0.8,
+      "upper": 0.9,
+      "samples": 20739,
+      "mean_probability": 0.8524472713470459,
+      "empirical_complete": 0.8447851873282222
+    },
+    {
+      "lower": 0.9,
+      "upper": 1.0,
+      "samples": 36267,
+      "mean_probability": 0.9508125185966492,
+      "empirical_complete": 0.9521603661731051
+    }
+  ],
+  "frontier": {
+    "3": [
+      {
+        "episodes": 500,
+        "threshold": 0.5,
+        "complete_case_rate": 0.702,
+        "source_clear_rate": 0.9686016235258079,
+        "mean_time_s_per_source": 251.1099485752867,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.1717521692630992,
+        "learned_stop_rate": 0.964
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.8,
+        "complete_case_rate": 0.858,
+        "source_clear_rate": 0.9877469750344616,
+        "mean_time_s_per_source": 268.6980136772596,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.11374062153184326,
+        "learned_stop_rate": 0.852
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.9,
+        "complete_case_rate": 0.938,
+        "source_clear_rate": 0.994639301577577,
+        "mean_time_s_per_source": 279.9643584602112,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.07658030319417318,
+        "learned_stop_rate": 0.782
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.95,
+        "complete_case_rate": 0.984,
+        "source_clear_rate": 0.9987746975034462,
+        "mean_time_s_per_source": 291.05162506641045,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.04001064688430774,
+        "learned_stop_rate": 0.62
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.97,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998468371879308,
+        "mean_time_s_per_source": 298.3978394695182,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.015780280154421043,
+        "learned_stop_rate": 0.408
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.99,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 303.18213855371226,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.995,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 303.18213855371226,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.998,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 303.18213855371226,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      }
+    ],
+    "4": [
+      {
+        "episodes": 1000,
+        "threshold": 0.5,
+        "complete_case_rate": 0.564,
+        "source_clear_rate": 0.9523002234722971,
+        "mean_time_s_per_source": 386.73413394476165,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.3517715027392052,
+        "learned_stop_rate": 0.943
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.8,
+        "complete_case_rate": 0.822,
+        "source_clear_rate": 0.9835863450720506,
+        "mean_time_s_per_source": 497.37287753618784,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.1663232058290172,
+        "learned_stop_rate": 0.893
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.9,
+        "complete_case_rate": 0.918,
+        "source_clear_rate": 0.9929105340217308,
+        "mean_time_s_per_source": 537.7839055584219,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.09858783501905853,
+        "learned_stop_rate": 0.853
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.95,
+        "complete_case_rate": 0.965,
+        "source_clear_rate": 0.9971488017261309,
+        "mean_time_s_per_source": 564.911960316961,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.0531168599324681,
+        "learned_stop_rate": 0.73
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.97,
+        "complete_case_rate": 0.987,
+        "source_clear_rate": 0.9989982276335054,
+        "mean_time_s_per_source": 580.8071439004766,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.02647398033214183,
+        "learned_stop_rate": 0.52
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.99,
+        "complete_case_rate": 0.999,
+        "source_clear_rate": 0.9999229405871928,
+        "mean_time_s_per_source": 596.5011418376322,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.00016832017474414872,
+        "learned_stop_rate": 0.008
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.995,
+        "complete_case_rate": 0.999,
+        "source_clear_rate": 0.9999229405871928,
+        "mean_time_s_per_source": 596.6015619167866,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.998,
+        "complete_case_rate": 0.999,
+        "source_clear_rate": 0.9999229405871928,
+        "mean_time_s_per_source": 596.6015619167866,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      }
+    ]
+  }
+}

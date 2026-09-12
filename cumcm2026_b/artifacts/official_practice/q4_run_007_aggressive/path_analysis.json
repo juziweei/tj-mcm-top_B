@@ -1,0 +1,25 @@
+{
+  "runs": [
+    {
+      "log": "artifacts\\official_practice\\q4_run_007_aggressive\\client.jsonl",
+      "sources_cleared": 10,
+      "virtual_time_s": 6554.63726,
+      "mean_time_s_per_source": 655.4637260000001,
+      "travel_m": 23408.186306093925,
+      "travel_time_s": 4681.637261218785,
+      "measure_actions": 312,
+      "measure_time_s": 1560.0,
+      "channel_switches": 263,
+      "switch_time_s": 263.0,
+      "clear_attempts": 10,
+      "clear_failures": 0,
+      "clear_time_s": 50.0,
+      "first_clear_time_s": 220.448636,
+      "max_leg_m": 2213.5943621178653,
+      "reconstruction_error_s": -1.2187847460154444e-06,
+      "clear_point_oracle_distance_m": 5927.64711471909,
+      "clear_point_oracle_time_s": 1235.529422943818,
+      "actual_to_oracle_ratio": 5.305124376870507
+    }
+  ]
+}

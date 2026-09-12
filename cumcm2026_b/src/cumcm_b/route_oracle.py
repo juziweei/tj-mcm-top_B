@@ -38,7 +38,6 @@ def exact_open_route_costs(
         raise ValueError("transition_costs must be a square matrix")
     if any(cost < 0.0 or not math.isfinite(cost) for cost in start_costs):
         raise ValueError("start costs must be finite and non-negative")
-
     state_count = (1 << count) * count
     costs = [math.inf] * state_count
     parents = [-1] * state_count

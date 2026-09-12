@@ -1,0 +1,69 @@
+{
+  "created_at_utc": "2026-09-11T12:12:28.149561+00:00",
+  "question": 4,
+  "mode": "official_practice",
+  "practice_journal": "vendor\\official_simulator\\Jammers-simulator\\JammersSimulatorData\\behavior-runs\\run-ei_vSprI2uLvbpX9wVC7fg\\behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "profile": "aggressive",
+  "policy_options": {
+    "stop_probability": 0.95,
+    "centroid_clear_max_radius_m": 75.0,
+    "use_enclosing_circle_target": true
+  },
+  "official_statistics": {
+    "id": 13,
+    "practice_run_no": 8804518900236081890,
+    "case_code": "4MGB-DHXJ-ZWVU-XFPH",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 10,
+    "measure_accepted_count": 312,
+    "virtual_time_us": 6554637260,
+    "program_run_duration_ms": 4119,
+    "channel_switch_count": 263,
+    "clear_failure_count": 0,
+    "jammer_count": 10,
+    "state": "confirmed"
+  },
+  "official_all_cleared": true,
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789128744362,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789128748481,
+    "virtual_time_s": 6554.63726,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 4.212520799999766,
+  "virtual_time_s": 6554.63726,
+  "cleared_count": 10,
+  "cleared_channels": [
+    2,
+    4,
+    7,
+    8,
+    11,
+    12,
+    13,
+    15,
+    17,
+    20
+  ],
+  "measure_actions": 312,
+  "discovery_measure_actions": 272,
+  "pursuit_measure_actions": 40,
+  "clear_actions": 10,
+  "travel_distance_m": 23408.186306093925,
+  "discovery_travel_distance_m": 16056.776071260261,
+  "pursuit_travel_distance_m": 7351.410234833663,
+  "discovery_positions": 23,
+  "unresolved_channels": [],
+  "posterior_all_sources_detected": 0.9514242995598492,
+  "stopped_by_probability": true,
+  "mean_virtual_time_per_cleared_source_s": 655.4637260000001
+}

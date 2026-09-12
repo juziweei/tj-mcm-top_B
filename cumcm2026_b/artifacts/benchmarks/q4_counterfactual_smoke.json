@@ -1,0 +1,80 @@
+{
+  "config": {
+    "episodes": 2,
+    "seed_start": 94000000,
+    "source_count": 16,
+    "directional_probability": 0.5,
+    "max_decisions": 1,
+    "alternatives_per_decision": 2,
+    "workers": 2
+  },
+  "semantics": "best full-episode result after one privilegedly shortlisted high-level decision replacement",
+  "baseline_complete_rate": 1.0,
+  "oracle_complete_rate": 1.0,
+  "baseline_mean_s_per_source": 288.9494590363678,
+  "oracle_mean_s_per_source": 261.67951775934915,
+  "mean_reduction_fraction": 0.09437616311157855,
+  "baseline_p95_s_per_source": 260.1729889242525,
+  "oracle_p95_s_per_source": 232.84080976078752,
+  "p95_reduction_fraction": 0.10505386926012726,
+  "episodes_improved": 2,
+  "counterfactual_rollouts": 4,
+  "wall_time_s": 3.233621800000037,
+  "gate": {
+    "oracle_complete_rate_required": 1.0,
+    "mean_reduction_required": 0.2,
+    "p95_reduction_required": 0.15,
+    "passed": false
+  },
+  "episodes": [
+    {
+      "seed": 94000000,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 5083.614866375729,
+        "mean_time_s_per_source": 317.7259291484831
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4648.2916121265725,
+        "mean_time_s_per_source": 290.5182257579108
+      },
+      "recorded_decisions": 20,
+      "counterfactual_rollouts": 2,
+      "best_override": {
+        "decision_index": 12,
+        "kind": "discovery",
+        "choice": [
+          700.0,
+          700.0
+        ],
+        "oracle_regret_score": 10090.09804864072
+      }
+    },
+    {
+      "seed": 94000001,
+      "baseline": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 4162.76782278804,
+        "mean_time_s_per_source": 260.1729889242525
+      },
+      "counterfactual_oracle": {
+        "cleared": 16,
+        "sources": 16,
+        "virtual_time_s": 3725.4529561726004,
+        "mean_time_s_per_source": 232.84080976078752
+      },
+      "recorded_decisions": 11,
+      "counterfactual_rollouts": 2,
+      "best_override": {
+        "decision_index": 1,
+        "kind": "pursuit",
+        "choice": 14,
+        "oracle_regret_score": 908.236774757929
+      }
+    }
+  ]
+}

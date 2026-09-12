@@ -1,0 +1,8 @@
+{
+  "device": "cpu_single_thread",
+  "episodes": 200,
+  "tokens": 64725,
+  "wall_time_s": 7.652419246733189,
+  "mean_ms_per_token": 0.1182297295748658,
+  "mean_ms_per_episode": 38.26209623366594
+}

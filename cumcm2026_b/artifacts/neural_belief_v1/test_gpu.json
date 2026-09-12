@@ -1,0 +1,251 @@
+{
+  "device": "cuda",
+  "episodes": 1500,
+  "tokens": 484242,
+  "inference_wall_s": 3.3695645853877068,
+  "mean_inference_ms_per_episode": 2.246376390258471,
+  "completion_brier": 0.059102825820446014,
+  "completion_calibration": [
+    {
+      "lower": 0.0,
+      "upper": 0.1,
+      "samples": 313896,
+      "mean_probability": 0.002370456699281931,
+      "empirical_complete": 0.0005638810306598363
+    },
+    {
+      "lower": 0.1,
+      "upper": 0.2,
+      "samples": 8767,
+      "mean_probability": 0.15044288337230682,
+      "empirical_complete": 0.098323257670811
+    },
+    {
+      "lower": 0.2,
+      "upper": 0.30000000000000004,
+      "samples": 11740,
+      "mean_probability": 0.25423356890678406,
+      "empirical_complete": 0.22632027257240203
+    },
+    {
+      "lower": 0.30000000000000004,
+      "upper": 0.4,
+      "samples": 18137,
+      "mean_probability": 0.3525826334953308,
+      "empirical_complete": 0.3345095660803882
+    },
+    {
+      "lower": 0.4,
+      "upper": 0.5,
+      "samples": 20764,
+      "mean_probability": 0.449425607919693,
+      "empirical_complete": 0.44601232903101523
+    },
+    {
+      "lower": 0.5,
+      "upper": 0.6000000000000001,
+      "samples": 19075,
+      "mean_probability": 0.5488386750221252,
+      "empirical_complete": 0.5282306684141547
+    },
+    {
+      "lower": 0.6000000000000001,
+      "upper": 0.7000000000000001,
+      "samples": 17253,
+      "mean_probability": 0.6494370102882385,
+      "empirical_complete": 0.638149886976178
+    },
+    {
+      "lower": 0.7000000000000001,
+      "upper": 0.8,
+      "samples": 17594,
+      "mean_probability": 0.750728189945221,
+      "empirical_complete": 0.7362168921223144
+    },
+    {
+      "lower": 0.8,
+      "upper": 0.9,
+      "samples": 20737,
+      "mean_probability": 0.8524587750434875,
+      "empirical_complete": 0.8446255485364325
+    },
+    {
+      "lower": 0.9,
+      "upper": 1.0,
+      "samples": 36279,
+      "mean_probability": 0.9508193135261536,
+      "empirical_complete": 0.9521761900824168
+    }
+  ],
+  "time_heads": {
+    "next_detection_discrete_nll": 1.463842511177063,
+    "remaining_time_median_mae_s": 769.5451049804688,
+    "remaining_time_10_90_coverage": 0.7911746606035825
+  },
+  "frontier": {
+    "3": [
+      {
+        "episodes": 500,
+        "threshold": 0.5,
+        "complete_case_rate": 0.702,
+        "source_clear_rate": 0.9686016235258079,
+        "mean_time_s_per_source": 251.07608807669388,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.17186385294853773,
+        "learned_stop_rate": 0.964
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.8,
+        "complete_case_rate": 0.858,
+        "source_clear_rate": 0.9877469750344616,
+        "mean_time_s_per_source": 268.6970947003872,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.1137436526367652,
+        "learned_stop_rate": 0.852
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.9,
+        "complete_case_rate": 0.938,
+        "source_clear_rate": 0.994639301577577,
+        "mean_time_s_per_source": 279.9625205064663,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.07658636540401707,
+        "learned_stop_rate": 0.782
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.95,
+        "complete_case_rate": 0.984,
+        "source_clear_rate": 0.9987746975034462,
+        "mean_time_s_per_source": 291.05162506641045,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.04001064688430774,
+        "learned_stop_rate": 0.62
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.97,
+        "complete_case_rate": 0.998,
+        "source_clear_rate": 0.9998468371879308,
+        "mean_time_s_per_source": 298.3978394695182,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.015780280154421043,
+        "learned_stop_rate": 0.408
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.99,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 303.18213855371226,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.995,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 303.18213855371226,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 500,
+        "threshold": 0.998,
+        "complete_case_rate": 1.0,
+        "source_clear_rate": 1.0,
+        "mean_time_s_per_source": 303.18213855371226,
+        "baseline_mean_time_s_per_source": 303.18213855371226,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      }
+    ],
+    "4": [
+      {
+        "episodes": 1000,
+        "threshold": 0.5,
+        "complete_case_rate": 0.564,
+        "source_clear_rate": 0.9523002234722971,
+        "mean_time_s_per_source": 386.6770880993777,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.3518671207345732,
+        "learned_stop_rate": 0.943
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.8,
+        "complete_case_rate": 0.822,
+        "source_clear_rate": 0.9835863450720506,
+        "mean_time_s_per_source": 497.3687163278962,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.16633018068218086,
+        "learned_stop_rate": 0.893
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.9,
+        "complete_case_rate": 0.918,
+        "source_clear_rate": 0.9929105340217308,
+        "mean_time_s_per_source": 537.7802067066071,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.09859403488853737,
+        "learned_stop_rate": 0.853
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.95,
+        "complete_case_rate": 0.965,
+        "source_clear_rate": 0.9971488017261309,
+        "mean_time_s_per_source": 564.9101108910536,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.053119959867207515,
+        "learned_stop_rate": 0.731
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.97,
+        "complete_case_rate": 0.987,
+        "source_clear_rate": 0.9989982276335054,
+        "mean_time_s_per_source": 580.8048321180923,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.026477855250566097,
+        "learned_stop_rate": 0.52
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.99,
+        "complete_case_rate": 0.999,
+        "source_clear_rate": 0.9999229405871928,
+        "mean_time_s_per_source": 596.5011418376322,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.00016832017474414872,
+        "learned_stop_rate": 0.008
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.995,
+        "complete_case_rate": 0.999,
+        "source_clear_rate": 0.9999229405871928,
+        "mean_time_s_per_source": 596.6015619167866,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      },
+      {
+        "episodes": 1000,
+        "threshold": 0.998,
+        "complete_case_rate": 0.999,
+        "source_clear_rate": 0.9999229405871928,
+        "mean_time_s_per_source": 596.6015619167866,
+        "baseline_mean_time_s_per_source": 596.6015619167866,
+        "relative_time_reduction": 0.0,
+        "learned_stop_rate": 0.0
+      }
+    ]
+  }
+}

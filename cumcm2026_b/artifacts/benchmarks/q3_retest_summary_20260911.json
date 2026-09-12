@@ -1,0 +1,79 @@
+{
+  "strategy": "joint",
+  "configuration": {
+    "environment_directional_probability": 0.0,
+    "belief_directional_probability": 0.0,
+    "stop_probability": 0.998,
+    "centroid_clear_max_radius_m": 75.0,
+    "use_enclosing_circle_target": true
+  },
+  "new_surrogate_batches": [
+    {
+      "artifact": "q3_retest_batch1_20.json",
+      "seed_start": 210000000,
+      "episodes": 20,
+      "complete_case_rate": 1.0,
+      "source_clear_rate": 1.0,
+      "mean_episode_time_s_per_source": 322.56,
+      "p95_episode_time_s_per_source": 427.77
+    },
+    {
+      "artifact": "q3_retest_batch2_20.json",
+      "seed_start": 220000000,
+      "episodes": 20,
+      "complete_case_rate": 1.0,
+      "source_clear_rate": 1.0,
+      "mean_episode_time_s_per_source": 325.56,
+      "p95_episode_time_s_per_source": 432.76
+    },
+    {
+      "artifact": "q3_retest_batch3_20.json",
+      "seed_start": 230000000,
+      "episodes": 20,
+      "complete_case_rate": 1.0,
+      "source_clear_rate": 1.0,
+      "mean_episode_time_s_per_source": 336.77,
+      "p95_episode_time_s_per_source": 475.88
+    }
+  ],
+  "new_surrogate_combined": {
+    "episodes": 60,
+    "sources": 764,
+    "cleared": 764,
+    "complete_case_rate": 1.0,
+    "source_clear_rate": 1.0,
+    "mean_episode_time_s_per_source": 328.294722061359,
+    "source_weighted_time_s_per_source": 317.781547934838,
+    "p95_episode_time_s_per_source": 471.71347786811,
+    "min_episode_time_s_per_source": 208.093591600703,
+    "max_episode_time_s_per_source": 562.248382093353,
+    "mean_wall_time_s": 1.06927709000003,
+    "max_wall_time_s": 1.32360020000033,
+    "failed_cases": 0
+  },
+  "official_joint_runs": {
+    "run_artifacts": [
+      "../official_practice/q3_run_004_joint/summary.json",
+      "../official_practice/q3_run_005_joint/summary.json",
+      "../official_practice/q3_run_006_joint/summary.json",
+      "../official_practice/q3_run_007_joint/summary.json",
+      "../official_practice/q3_run_008_joint/summary.json",
+      "../official_practice/q3_run_009_joint/summary.json",
+      "../official_practice/q3_run_010_joint/summary.json"
+    ],
+    "runs": 7,
+    "complete_runs": 7,
+    "sources": 95,
+    "cleared": 95,
+    "source_weighted_time_s_per_source": 284.81718143157894,
+    "mean_episode_time_s_per_source": 292.3517236794872,
+    "max_wall_time_s": 3.76996929999996,
+    "total_clear_failures": 2
+  },
+  "regression_tests": {
+    "runner": "unittest",
+    "tests_run": 13,
+    "failures": 0,
+    "errors": 0
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "purpose": "Explain the Q4 low-source-count reliability cost without claiming global optimality.",
+  "status": "optimistic_constructed_reference_not_a_lower_bound",
+  "model": {
+    "detected_source_count": 10,
+    "stop_probability": 0.95,
+    "stopping_angular_margin_deg": 12.0,
+    "stopping_half_width_deg": 78.0,
+    "validation_particles": 8192,
+    "candidate_points": 117
+  },
+  "greedy_coverage_route": {
+    "selected_points": 20,
+    "single_source_miss_probability": 0.00439453125,
+    "posterior_all_sources_detected": 0.9527084303229946,
+    "open_route_distance_km": 17.193989501223758,
+    "movement_time_s": 3438.7979002447515,
+    "measurement_time_s_for_10_unknown_channels": 1200.0
+  },
+  "official_run_007_comparison": {
+    "privileged_oracle_clear_time_s": 1235.529,
+    "constructed_total_time_s": 5874.326900244751,
+    "constructed_mean_time_s_per_source": 587.4326900244752,
+    "observed_mean_time_s_per_source": 655.4637,
+    "observed_excess_s_per_source": 68.0310099755248,
+    "observed_excess_fraction": 0.115813
+  },
+  "limitations": [
+    "The 20-point set is produced by greedy maximum residual coverage and is not proven minimum.",
+    "The clear-time component uses privileged true source coordinates and omits deployable localization uncertainty.",
+    "The reference diagnoses scale; it is neither a feasible submitted controller nor a formal lower bound."
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "created_at_utc": "2026-09-11T12:28:12.472271+00:00",
+  "question": 3,
+  "mode": "official_practice",
+  "practice_journal": "vendor\\official_simulator\\Jammers-simulator\\JammersSimulatorData\\behavior-runs\\run-sQ4Tk-3PP8ZvKu1BlvpEbQ\\behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "strategy": "joint",
+  "official_statistics": {
+    "id": 15,
+    "practice_run_no": 3534784283603320774,
+    "case_code": "JN32-MS93-XF4S-HV4Z",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 13,
+    "measure_accepted_count": 190,
+    "virtual_time_us": 3826135156,
+    "program_run_duration_ms": 2822,
+    "channel_switch_count": 149,
+    "clear_failure_count": 0,
+    "jammer_count": 13,
+    "state": "confirmed"
+  },
+  "official_all_cleared": true,
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789129688973,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789129691796,
+    "virtual_time_s": 3826.135156,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 2.8964538000000175,
+  "virtual_time_s": 3826.135156,
+  "cleared_count": 13,
+  "cleared_channels": [
+    2,
+    5,
+    6,
+    7,
+    8,
+    9,
+    12,
+    14,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "measure_actions": 190,
+  "clear_actions": 13,
+  "travel_distance_m": 13310.675777763448,
+  "discovery_measure_actions": 146,
+  "pursuit_measure_actions": 44,
+  "posterior_all_sources_detected": 0.9982925792293462,
+  "mean_virtual_time_per_cleared_source_s": 294.3180889230769
+}

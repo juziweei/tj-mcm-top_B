@@ -1,0 +1,30 @@
+{
+  "episodes": 20,
+  "baseline": {
+    "source_clear_rate": 0.996875,
+    "complete_case_rate": 0.95,
+    "mean_virtual_time_s_per_present_source": 376.2404940102948,
+    "p95_virtual_time_s_per_present_source": 455.8439001178718,
+    "mean_wall_time_s": 0.9718266249999488
+  },
+  "candidate": {
+    "source_clear_rate": 0.996875,
+    "complete_case_rate": 0.95,
+    "mean_virtual_time_s_per_present_source": 371.2352352337065,
+    "p95_virtual_time_s_per_present_source": 455.8439001178718,
+    "mean_wall_time_s": 1.4216798850000032
+  },
+  "paired": {
+    "mean_savings_s_per_present_source": 5.005258776588326,
+    "mean_savings_95pct_bootstrap_ci_s": [
+      -20.81932082722758,
+      29.663792036031943
+    ],
+    "mean_relative_savings": 0.0011113428874270227,
+    "mean_relative_savings_95pct_bootstrap_ci": [
+      -0.07696003453713975,
+      0.0698095787048052
+    ],
+    "candidate_faster_case_rate": 0.35
+  }
+}

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from functools import lru_cache
 import math
-from typing import Sequence
+from typing import Callable, Literal, Sequence
 
 import numpy as np
 
@@ -19,6 +19,10 @@ class Q4SearchResult:
     cleared_count: int
     virtual_time_s: float
     measure_actions: int
+    discovery_measure_actions: int
+    undetected_discovery_measure_actions: int
+    detected_discovery_measure_actions: int
+    pursuit_measure_actions: int
     clear_actions: int
     travel_distance_m: float
     discovery_travel_distance_m: float
@@ -28,7 +32,10 @@ class Q4SearchResult:
     exhausted_discovery_lattice: bool
     unresolved_channels: tuple[int, ...]
     posterior_all_sources_detected: float
+    posterior_expected_remaining_sources: float
+    posterior_expected_missed_source_fraction: float
     stopped_by_probability: bool
+    stopped_by_source_risk: bool
 
     @property
     def mean_clear_time_s(self) -> float:
@@ -37,6 +44,84 @@ class Q4SearchResult:
             if self.cleared_count
             else math.inf
         )
+
+
+Q4DecisionKind = Literal["discovery", "pursuit"]
+Q4DecisionChoice = Point | int | None
+Q4Profile = Literal[
+    "conservative",
+    "balanced",
+    "aggressive",
+    "source-reliable",
+    "source-efficient",
+    "source-98",
+]
+
+
+def q4_profile_options(profile: Q4Profile) -> dict[str, object]:
+    """Return explicit, auditable reliability/speed settings for deployment."""
+
+    if profile == "conservative":
+        return {
+            "stop_probability": 0.998,
+            "centroid_clear_max_radius_m": 75.0,
+            "use_enclosing_circle_target": True,
+        }
+    if profile == "balanced":
+        return {
+            "stop_probability": 0.97,
+            "centroid_clear_max_radius_m": 75.0,
+            "use_enclosing_circle_target": True,
+        }
+    if profile == "aggressive":
+        return {
+            "stop_probability": 0.95,
+            "centroid_clear_max_radius_m": 75.0,
+            "use_enclosing_circle_target": True,
+        }
+    if profile == "source-reliable":
+        return {
+            "source_miss_risk_budget": 0.03,
+            "any_source_remaining_probability_budget": 0.05,
+            "centroid_clear_max_radius_m": 75.0,
+            "use_enclosing_circle_target": True,
+        }
+    if profile == "source-efficient":
+        return {
+            "source_miss_risk_budget": 0.04,
+            "any_source_remaining_probability_budget": 0.10,
+            "centroid_clear_max_radius_m": 75.0,
+            "use_enclosing_circle_target": True,
+        }
+    if profile == "source-98":
+        return {
+            "source_miss_risk_budget": 0.04,
+            "any_source_remaining_probability_budget": 0.25,
+            "centroid_clear_max_radius_m": 75.0,
+            "use_enclosing_circle_target": True,
+        }
+    raise ValueError(f"unknown Q4 profile: {profile!r}")
+
+
+@dataclass(frozen=True)
+class Q4DecisionContext:
+    """Observable high-level choice exposed only for policy evaluation.
+
+    A hook may replace one discovery point or the first channel in a pursuit
+    route.  Hidden source state is deliberately absent; offline evaluators can
+    retain it separately to construct privileged training targets.
+    """
+
+    decision_index: int
+    kind: Q4DecisionKind
+    position: Point
+    virtual_time_s: float
+    detected_channels: tuple[int, ...]
+    cleared_channels: tuple[int, ...]
+    candidate_points: tuple[Point, ...] = ()
+    candidate_channels: tuple[int, ...] = ()
+    default_point: Point | None = None
+    default_channel: int | None = None
 
 
 def directional_discovery_lattice(
@@ -126,6 +211,8 @@ class SparseDirectionalSearch:
         clear_radius_m: float = 19.0,
         maximum_pursuit_measurements: int = 64,
         stop_probability: float = 0.998,
+        source_miss_risk_budget: float | None = None,
+        any_source_remaining_probability_budget: float | None = None,
         belief_particle_count: int = 8192,
         belief_directional_probability: float = 0.5,
         belief_range_margin_m: float = 10.0,
@@ -135,6 +222,7 @@ class SparseDirectionalSearch:
         analytic_validation_position_count: int = 0,
         shared_bearing_target: int = 3,
         centroid_clear_after_bearings: int = 2,
+        centroid_clear_max_radius_m: float = math.inf,
         pursuit_deferral_positions: int = 0,
         route_aware_discovery_selection: bool = True,
         terminal_route_commitment_steps: int = 1,
@@ -142,9 +230,14 @@ class SparseDirectionalSearch:
         scan_after_clear: bool = True,
         opportunistic_scan_rate_ratio: float = 0.5,
         target_posterior_particle_count: int = 0,
+        use_enclosing_circle_target: bool = False,
         refinement_phase_divisions: int = 1,
         include_polar_refinement: bool = False,
         discovery_points: Sequence[Point] | None = None,
+        decision_override: (
+            Callable[[Q4DecisionContext], Q4DecisionChoice] | None
+        ) = None,
+        target_estimate_override: Callable[[int], Point | None] | None = None,
     ):
         self.discovery_points = (
             list(discovery_points)
@@ -169,11 +262,25 @@ class SparseDirectionalSearch:
         self.maximum_pursuit_measurements = maximum_pursuit_measurements
         if not 0.0 < stop_probability <= 1.0:
             raise ValueError("stop_probability must lie in (0, 1]")
+        if source_miss_risk_budget is not None and not (
+            0.0 <= source_miss_risk_budget < 1.0
+        ):
+            raise ValueError("source miss risk budget must lie in [0, 1)")
+        if any_source_remaining_probability_budget is not None and not (
+            0.0 <= any_source_remaining_probability_budget < 1.0
+        ):
+            raise ValueError(
+                "any-source remaining probability budget must lie in [0, 1)"
+            )
         if belief_particle_count < 128:
             raise ValueError("belief_particle_count must be at least 128")
         if not 0.0 <= belief_directional_probability <= 1.0:
             raise ValueError("belief_directional_probability must lie in [0, 1]")
         self.stop_probability = stop_probability
+        self.source_miss_risk_budget = source_miss_risk_budget
+        self.any_source_remaining_probability_budget = (
+            any_source_remaining_probability_budget
+        )
         self.belief_directional_probability = belief_directional_probability
         if not 0.0 <= belief_range_margin_m < 1000.0:
             raise ValueError("belief_range_margin_m must lie in [0, 1000)")
@@ -215,6 +322,7 @@ class SparseDirectionalSearch:
                 "target posterior particles need either zero or at least 8192 states"
             )
         self.target_posterior_particle_count = target_posterior_particle_count
+        self.use_enclosing_circle_target = use_enclosing_circle_target
         self._target_particle_bank = (
             self._make_target_particle_bank(
                 target_posterior_particle_count,
@@ -230,6 +338,11 @@ class SparseDirectionalSearch:
         if centroid_clear_after_bearings < 0:
             raise ValueError("centroid_clear_after_bearings must be non-negative")
         self.centroid_clear_after_bearings = centroid_clear_after_bearings
+        if centroid_clear_max_radius_m <= 0.0:
+            raise ValueError("centroid clear radius bound must be positive")
+        self.centroid_clear_max_radius_m = centroid_clear_max_radius_m
+        self.decision_override = decision_override
+        self.target_estimate_override = target_estimate_override
         self._belief_particles = self._make_belief_particles(
             belief_particle_count, belief_directional_probability, 1
         )
@@ -444,13 +557,21 @@ class SparseDirectionalSearch:
         return mask
 
     @staticmethod
-    def _completion_probability_from_miss(
+    def _source_count_posterior_summary(
         detected_count: int, miss_probability: float
-    ) -> float:
-        if detected_count < 10:
-            return 0.0
+    ) -> tuple[float, float, float]:
+        """Return P(no source remains), E[remaining], and expected miss share.
+
+        The source count prior is uniform on 10..16 and occupied channels are
+        uniform without replacement among the 20 channels. ``miss_probability``
+        is the probability that one still-unseen source escaped the accumulated
+        no-signal observations.  The final quantity targets source-level loss,
+        unlike the first quantity which targets the stricter whole-case loss.
+        """
+
+        miss_probability = min(1.0, max(0.0, miss_probability))
         if detected_count >= 16:
-            return 1.0
+            return 1.0, 0.0, 0.0
         weights = []
         for source_count in range(max(10, detected_count), 17):
             remaining = source_count - detected_count
@@ -461,12 +582,54 @@ class SparseDirectionalSearch:
             weights.append((source_count, occupancy * miss_probability**remaining))
         denominator = sum(weight for _, weight in weights)
         if denominator <= 0.0:
-            return 1.0
+            # With fewer than ten detections and exactly zero modeled miss
+            # probability the observation has zero likelihood under every
+            # allowed source count.  Use the q->0 limiting state (N=10)
+            # instead of incorrectly declaring completion.
+            remaining = max(0, 10 - detected_count)
+            return 0.0, float(remaining), remaining / 10.0
         complete_weight = next(
             (weight for source_count, weight in weights if source_count == detected_count),
             0.0,
         )
-        return complete_weight / denominator
+        expected_remaining = sum(
+            (source_count - detected_count) * weight
+            for source_count, weight in weights
+        ) / denominator
+        expected_total = detected_count + expected_remaining
+        expected_missed_fraction = (
+            expected_remaining / expected_total if expected_total else 0.0
+        )
+        return (
+            complete_weight / denominator,
+            expected_remaining,
+            expected_missed_fraction,
+        )
+
+    @classmethod
+    def _completion_probability_from_miss(
+        cls, detected_count: int, miss_probability: float
+    ) -> float:
+        return cls._source_count_posterior_summary(
+            detected_count, miss_probability
+        )[0]
+
+    def _stopping_objective_satisfied(
+        self, detected_count: int, miss_probability: float
+    ) -> bool:
+        complete, _, missed_fraction = self._source_count_posterior_summary(
+            detected_count, miss_probability
+        )
+        if self.source_miss_risk_budget is not None:
+            if missed_fraction > self.source_miss_risk_budget:
+                return False
+            if self.any_source_remaining_probability_budget is not None:
+                return (
+                    1.0 - complete
+                    <= self.any_source_remaining_probability_budget
+                )
+            return True
+        return complete >= self.stop_probability
 
     def _posterior_all_detected(
         self, detected_count: int, scan_positions: Sequence[Point]
@@ -676,6 +839,10 @@ class SparseDirectionalSearch:
     def run(self, environment) -> Q4SearchResult:
         tracks = {channel: ChannelTrack(channel) for channel in range(1, 21)}
         measure_actions = 0
+        discovery_measure_actions = 0
+        undetected_discovery_measure_actions = 0
+        detected_discovery_measure_actions = 0
+        pursuit_measure_actions = 0
         clear_actions = 0
         travel_distance_m = 0.0
         discovery_travel_distance_m = 0.0
@@ -694,8 +861,77 @@ class SparseDirectionalSearch:
         positions_since_pursuit = 0
         target_estimate_cache: dict[int, tuple[tuple[int, int], Point]] = {}
         committed_discovery_route: list[Point] = []
+        decision_index = 0
+
+        def decision_context(
+            *,
+            kind: Q4DecisionKind,
+            candidate_points: tuple[Point, ...] = (),
+            candidate_channels: tuple[int, ...] = (),
+            default_point: Point | None = None,
+            default_channel: int | None = None,
+        ) -> Q4DecisionContext:
+            return Q4DecisionContext(
+                decision_index=decision_index,
+                kind=kind,
+                position=environment.position,
+                virtual_time_s=environment.virtual_time_s,
+                detected_channels=tuple(
+                    track.channel for track in tracks.values() if track.detected
+                ),
+                cleared_channels=tuple(sorted(environment.cleared_channels)),
+                candidate_points=candidate_points,
+                candidate_channels=candidate_channels,
+                default_point=default_point,
+                default_channel=default_channel,
+            )
+
+        def choose_discovery_point(default: Point) -> Point:
+            nonlocal decision_index
+            if self.decision_override is None:
+                return default
+            candidates = tuple(sorted(unvisited))
+            context = decision_context(
+                kind="discovery",
+                candidate_points=candidates,
+                default_point=default,
+            )
+            choice = self.decision_override(context)
+            decision_index += 1
+            if choice is None:
+                return default
+            if not isinstance(choice, tuple) or choice not in unvisited:
+                raise ValueError("discovery override must be an unvisited candidate point")
+            return choice
+
+        def choose_pursuit_order(
+            pending: Sequence[ChannelTrack], order: Sequence[int]
+        ) -> list[int]:
+            nonlocal decision_index
+            ordered = list(order)
+            if self.decision_override is None or not ordered:
+                return ordered
+            channels = tuple(track.channel for track in pending)
+            default_channel = pending[ordered[0]].channel
+            context = decision_context(
+                kind="pursuit",
+                candidate_channels=channels,
+                default_channel=default_channel,
+            )
+            choice = self.decision_override(context)
+            decision_index += 1
+            if choice is None:
+                return ordered
+            if not isinstance(choice, int) or choice not in channels:
+                raise ValueError("pursuit override must be a pending channel")
+            selected = channels.index(choice)
+            return [selected, *(index for index in ordered if index != selected)]
 
         def estimated_target(track: ChannelTrack) -> Point:
+            if self.target_estimate_override is not None:
+                override = self.target_estimate_override(track.channel)
+                if override is not None:
+                    return override
             state = (len(track.measurements), len(track.no_signal_positions))
             cached = target_estimate_cache.get(track.channel)
             if cached is not None and cached[0] == state:
@@ -706,8 +942,21 @@ class SparseDirectionalSearch:
             target_estimate_cache[track.channel] = (state, estimate)
             return estimate
 
+        def route_target(track: ChannelTrack) -> Point:
+            circle = track.enclosing_circle
+            if (
+                self.use_enclosing_circle_target
+                and len(track.measurements) >= 2
+                and circle is not None
+            ):
+                return circle.center
+            return estimated_target(track)
+
         def measure(track: ChannelTrack, point: Point, *, discovery: bool = False):
             nonlocal measure_actions, travel_distance_m
+            nonlocal discovery_measure_actions, pursuit_measure_actions
+            nonlocal undetected_discovery_measure_actions
+            nonlocal detected_discovery_measure_actions
             nonlocal discovery_travel_distance_m, pursuit_travel_distance_m
             movement = self._distance(environment.position, point)
             travel_distance_m += movement
@@ -717,6 +966,14 @@ class SparseDirectionalSearch:
                 pursuit_travel_distance_m += movement
             observation = environment.measure(point, track.channel)
             measure_actions += 1
+            if discovery:
+                discovery_measure_actions += 1
+                if track.detected:
+                    detected_discovery_measure_actions += 1
+                else:
+                    undetected_discovery_measure_actions += 1
+            else:
+                pursuit_measure_actions += 1
             track.update(observation)
             return observation
 
@@ -777,10 +1034,13 @@ class SparseDirectionalSearch:
             )
             last_signal_point: Point | None = None
             last_bearing: float | None = None
+            enclosing_circle = track.enclosing_circle
             if (
                 self.centroid_clear_after_bearings
                 and len(track.measurements) >= self.centroid_clear_after_bearings
                 and track.polygon
+                and enclosing_circle is not None
+                and enclosing_circle.radius <= self.centroid_clear_max_radius_m
             ):
                 posterior_center = estimated_target(track)
                 if clear(track, posterior_center):
@@ -889,6 +1149,8 @@ class SparseDirectionalSearch:
             point: Point, *, opportunistic: bool = False
         ) -> list[ChannelTrack]:
             nonlocal discovery_positions, belief_covered_mask, validation_covered_mask
+            if sum(track.detected for track in tracks.values()) >= 16:
+                return []
             channels = [
                 track
                 for track in tracks.values()
@@ -978,6 +1240,43 @@ class SparseDirectionalSearch:
                     committed_discovery_route.clear()
             return newly_detected
 
+        def service_track(track: ChannelTrack) -> tuple[bool, bool]:
+            """Attempt one known source and report (cleared, new discovery)."""
+
+            if all(
+                self._distance(environment.position, old) > 1e-8
+                for old in track.attempted_measurement_positions
+            ):
+                handoff = measure(track, environment.position)
+                if handoff.result == "near" and clear(track, environment.position):
+                    newly_detected = (
+                        self.scan_after_clear
+                        and environment.cleared_count < 16
+                        and bool(
+                            scan_undetected(
+                                environment.position,
+                                opportunistic=True,
+                            )
+                        )
+                    )
+                    return True, newly_detected
+            if not home(track):
+                failed_home_measurement_count[track.channel] = len(
+                    track.measurements
+                )
+                return False, False
+            newly_detected = (
+                self.scan_after_clear
+                and environment.cleared_count < 16
+                and bool(
+                    scan_undetected(
+                        environment.position,
+                        opportunistic=True,
+                    )
+                )
+            )
+            return True, newly_detected
+
         def clear_detected_tracks() -> None:
             """Jointly route the currently detected sources without resets.
 
@@ -1003,7 +1302,7 @@ class SparseDirectionalSearch:
                 ]
                 if not pending:
                     return
-                estimates = [estimated_target(track) for track in pending]
+                estimates = [route_target(track) for track in pending]
                 start_costs = [
                     self._expected_service_distance(
                         environment.position, track, estimates[index]
@@ -1022,58 +1321,26 @@ class SparseDirectionalSearch:
                     for first in range(len(pending))
                 ]
                 route = exact_open_route_costs(start_costs, transition_costs)
+                pursuit_order = choose_pursuit_order(pending, route.order)
                 discovered_during_route = False
-                for index in route.order:
+                for index in pursuit_order:
                     track = pending[index]
                     if track.cleared:
                         continue
-                    # A co-located handoff observation costs only the sensing
-                    # time.  When it succeeds, its bearing intersects the old
-                    # discovery ray and lets the pursuit start from the current
-                    # source instead of resetting to the old discovery site.
-                    if all(
-                        self._distance(environment.position, old) > 1e-8
-                        for old in track.attempted_measurement_positions
-                    ):
-                        handoff = measure(track, environment.position)
-                        if handoff.result == "near":
-                            if clear(track, environment.position):
-                                if (
-                                    self.scan_after_clear
-                                    and environment.cleared_count < 16
-                                    and scan_undetected(
-                                        environment.position, opportunistic=True
-                                    )
-                                ):
-                                    discovered_during_route = True
-                                    break
-                                continue
-                    if not home(track):
-                        failed_home_measurement_count[track.channel] = len(
-                            track.measurements
-                        )
+                    cleared, discovered = service_track(track)
+                    if not cleared:
                         attempted.add(track.channel)
-                        continue
-                    if (
-                        self.scan_after_clear
-                        and environment.cleared_count < 16
-                        and scan_undetected(
-                            environment.position, opportunistic=True
-                        )
-                    ):
+                    if discovered:
                         discovered_during_route = True
                         break
                 if not discovered_during_route:
                     return
 
-        def next_discovery_point() -> Point:
-            """Plan a coverage batch, then take its exact shortest first leg."""
+        def plan_discovery_points(origin: Point) -> list[Point]:
+            """Return an observable coverage batch ordered from ``origin``."""
 
-            while committed_discovery_route:
-                point = committed_discovery_route.pop(0)
-                if point in unvisited:
-                    return point
-
+            if not unvisited:
+                return []
             missed_mask = belief_full_mask ^ belief_covered_mask
             validation_missed_mask = validation_full_mask ^ validation_covered_mask
             unknown_channels = sum(not track.detected for track in tracks.values())
@@ -1117,9 +1384,9 @@ class SparseDirectionalSearch:
                             return (
                                 float(gain),
                                 float(validation_gain),
-                                -self._distance(environment.position, candidate),
+                                -self._distance(origin, candidate),
                             )
-                        attachment_points = [environment.position, *selected]
+                        attachment_points = [origin, *selected]
                         insertion_distance = min(
                             self._distance(anchor, candidate)
                             for anchor in attachment_points
@@ -1154,23 +1421,17 @@ class SparseDirectionalSearch:
                         projected_validation_covered.bit_count()
                         / len(self._validation_particles)
                     )
-                    projected_complete = self._completion_probability_from_miss(
+                    if self._stopping_objective_satisfied(
                         detected_count, projected_miss
-                    )
-                    if projected_complete >= self.stop_probability:
+                    ):
                         break
                 if selected:
                     route = (
-                        exact_open_route(selected, start=environment.position)
+                        exact_open_route(selected, start=origin)
                         if len(selected) <= 10
-                        else fast_open_route(selected, start=environment.position)
+                        else fast_open_route(selected, start=origin)
                     )
-                    ordered = [selected[index] for index in route.order]
-                    commit_until = min(
-                        len(ordered), self.terminal_route_commitment_steps
-                    )
-                    committed_discovery_route.extend(ordered[1:commit_until])
-                    return ordered[0]
+                    return [selected[index] for index in route.order]
 
             # Before ten detections there is no meaningful completion
             # posterior.  Maximize newly covered latent states per full action
@@ -1195,7 +1456,7 @@ class SparseDirectionalSearch:
                 validation_gain = (
                     validation_visible_mask & validation_missed_mask
                 ).bit_count()
-                travel_s = self._distance(environment.position, candidate) / 5.0
+                travel_s = self._distance(origin, candidate) / 5.0
                 action_s = travel_s + max(1, unknown_channels) * 6.0
                 active_gain = gain if missed_mask else validation_gain
                 key = (
@@ -1208,7 +1469,21 @@ class SparseDirectionalSearch:
                     best_key = key
                     best_point = candidate
             assert best_point is not None
-            return best_point
+            return [best_point]
+
+        def next_discovery_point() -> Point:
+            """Plan a coverage batch, then take its exact shortest first leg."""
+
+            while committed_discovery_route:
+                point = committed_discovery_route.pop(0)
+                if point in unvisited:
+                    return point
+            ordered = plan_discovery_points(environment.position)
+            if not ordered:
+                raise RuntimeError("no useful discovery point remains")
+            commit_until = min(len(ordered), self.terminal_route_commitment_steps)
+            committed_discovery_route.extend(ordered[1:commit_until])
+            return choose_discovery_point(ordered[0])
 
         while unvisited:
             detected_count = sum(track.detected for track in tracks.values())
@@ -1232,13 +1507,19 @@ class SparseDirectionalSearch:
                 miss_probability = max(
                     particle_miss_probability, analytic_miss_probability
                 )
-            posterior_complete = self._completion_probability_from_miss(
+            (
+                posterior_complete,
+                posterior_expected_remaining,
+                posterior_missed_fraction,
+            ) = self._source_count_posterior_summary(
                 detected_count, miss_probability
             )
             if (
                 environment.cleared_count >= 10
                 and not any(track.detected and not track.cleared for track in tracks.values())
-                and posterior_complete >= self.stop_probability
+                and self._stopping_objective_satisfied(
+                    detected_count, miss_probability
+                )
             ):
                 stopped_by_probability = True
                 break
@@ -1281,13 +1562,21 @@ class SparseDirectionalSearch:
             miss_probability = max(
                 particle_miss_probability, analytic_miss_probability
             )
-        posterior_complete = self._completion_probability_from_miss(
+        (
+            posterior_complete,
+            posterior_expected_remaining,
+            posterior_missed_fraction,
+        ) = self._source_count_posterior_summary(
             sum(track.detected for track in tracks.values()), miss_probability
         )
         return Q4SearchResult(
             cleared_count=environment.cleared_count,
             virtual_time_s=environment.virtual_time_s,
             measure_actions=measure_actions,
+            discovery_measure_actions=discovery_measure_actions,
+            undetected_discovery_measure_actions=undetected_discovery_measure_actions,
+            detected_discovery_measure_actions=detected_discovery_measure_actions,
+            pursuit_measure_actions=pursuit_measure_actions,
             clear_actions=clear_actions,
             travel_distance_m=travel_distance_m,
             discovery_travel_distance_m=discovery_travel_distance_m,
@@ -1297,5 +1586,10 @@ class SparseDirectionalSearch:
             exhausted_discovery_lattice=not unvisited,
             unresolved_channels=unresolved,
             posterior_all_sources_detected=posterior_complete,
+            posterior_expected_remaining_sources=posterior_expected_remaining,
+            posterior_expected_missed_source_fraction=posterior_missed_fraction,
             stopped_by_probability=stopped_by_probability,
+            stopped_by_source_risk=(
+                stopped_by_probability and self.source_miss_risk_budget is not None
+            ),
         )

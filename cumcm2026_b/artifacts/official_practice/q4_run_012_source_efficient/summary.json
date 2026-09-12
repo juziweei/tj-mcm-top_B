@@ -1,0 +1,72 @@
+{
+  "created_at_utc": "2026-09-11T14:35:51.283295+00:00",
+  "question": 4,
+  "mode": "official_practice",
+  "practice_journal": "vendor\\official_simulator\\Jammers-simulator\\JammersSimulatorData\\behavior-runs\\run-VrTjGmgHP8a6eedVev7IEg\\behavior.journal.jsonl",
+  "robot_id": "202609003392",
+  "profile": "source-efficient",
+  "policy_options": {
+    "source_miss_risk_budget": 0.04,
+    "centroid_clear_max_radius_m": 75.0,
+    "use_enclosing_circle_target": true
+  },
+  "official_statistics": {
+    "id": 23,
+    "practice_run_no": 6247868285623680966,
+    "case_code": "RRFA-DMZP-322C-H5NN",
+    "end_reason": "user_exit",
+    "cleared_jammer_count": 10,
+    "measure_accepted_count": 237,
+    "virtual_time_us": 5838481111,
+    "program_run_duration_ms": 2870,
+    "channel_switch_count": 199,
+    "clear_failure_count": 9,
+    "jammer_count": 10,
+    "state": "confirmed"
+  },
+  "official_all_cleared": true,
+  "enter": {
+    "accepted": true,
+    "real_timestamp_ms": 1789137347844,
+    "virtual_time_s": 0,
+    "max_virtual_duration_s": 360000,
+    "max_real_duration_s": 1200,
+    "remaining_real_duration_s": 1200
+  },
+  "exit": {
+    "accepted": true,
+    "real_timestamp_ms": 1789137350715,
+    "virtual_time_s": 5838.481111,
+    "exit_reason": "user_exit"
+  },
+  "wall_time_s": 2.9406772000002093,
+  "virtual_time_s": 5838.481111,
+  "cleared_count": 10,
+  "cleared_channels": [
+    2,
+    5,
+    6,
+    8,
+    11,
+    14,
+    15,
+    16,
+    17,
+    18
+  ],
+  "measure_actions": 237,
+  "discovery_measure_actions": 198,
+  "pursuit_measure_actions": 39,
+  "clear_actions": 19,
+  "travel_distance_m": 21887.4055577946,
+  "discovery_travel_distance_m": 13977.98040542971,
+  "pursuit_travel_distance_m": 7909.42515236489,
+  "discovery_positions": 15,
+  "unresolved_channels": [],
+  "posterior_all_sources_detected": 0.6773921033099525,
+  "posterior_expected_remaining_sources": 0.3964782344546521,
+  "posterior_expected_missed_source_fraction": 0.038135821141883956,
+  "stopped_by_probability": true,
+  "stopped_by_source_risk": true,
+  "mean_virtual_time_per_cleared_source_s": 583.8481111
+}

@@ -27,6 +27,8 @@ def main() -> int:
     parser.add_argument("--initial-pursuit-step-m", type=float, default=125.0)
     parser.add_argument("--single-bearing-pursuit-step-m", type=float, default=350.0)
     parser.add_argument("--stop-probability", type=float, default=0.998)
+    parser.add_argument("--source-miss-risk-budget", type=float)
+    parser.add_argument("--any-source-remaining-probability-budget", type=float)
     parser.add_argument("--belief-directional-probability", type=float, default=0.5)
     parser.add_argument(
         "--environment-directional-probability", type=float, default=0.5
@@ -40,6 +42,7 @@ def main() -> int:
     parser.add_argument("--shared-bearing-target", type=int, default=3)
     parser.add_argument("--cross-bearing-fraction", type=float, default=0.0)
     parser.add_argument("--centroid-clear-after-bearings", type=int, default=2)
+    parser.add_argument("--centroid-clear-max-radius-m", type=float, default=float("inf"))
     parser.add_argument("--pursuit-deferral-positions", type=int, default=0)
     parser.add_argument(
         "--disable-route-aware-discovery-selection", action="store_true"
@@ -49,8 +52,11 @@ def main() -> int:
     parser.add_argument("--disable-scan-after-clear", action="store_true")
     parser.add_argument("--opportunistic-scan-rate-ratio", type=float, default=0.5)
     parser.add_argument("--target-posterior-particle-count", type=int, default=0)
+    parser.add_argument("--use-enclosing-circle-target", action="store_true")
     parser.add_argument("--refinement-phase-divisions", type=int, default=1)
     parser.add_argument("--polar-refinement", action="store_true")
+    parser.add_argument("--analysis-oracle-target-estimates", action="store_true")
+    parser.add_argument("--include-rows", action="store_true")
     parser.add_argument("--output", type=Path)
     parser.add_argument("--base-lattice-only", action="store_true")
     args = parser.parse_args()
@@ -64,10 +70,15 @@ def main() -> int:
             directional_probability=args.environment_directional_probability,
         )
         environment = InterferenceEnvironment(sources)
+        source_positions = {source.channel: source.position for source in sources}
         result = SparseDirectionalSearch(
             initial_pursuit_step_m=args.initial_pursuit_step_m,
             single_bearing_pursuit_step_m=args.single_bearing_pursuit_step_m,
             stop_probability=args.stop_probability,
+            source_miss_risk_budget=args.source_miss_risk_budget,
+            any_source_remaining_probability_budget=(
+                args.any_source_remaining_probability_budget
+            ),
             belief_directional_probability=args.belief_directional_probability,
             belief_particle_count=args.belief_particle_count,
             belief_range_margin_m=args.belief_range_margin_m,
@@ -78,6 +89,7 @@ def main() -> int:
             shared_bearing_target=args.shared_bearing_target,
             cross_bearing_fraction=args.cross_bearing_fraction,
             centroid_clear_after_bearings=args.centroid_clear_after_bearings,
+            centroid_clear_max_radius_m=args.centroid_clear_max_radius_m,
             pursuit_deferral_positions=args.pursuit_deferral_positions,
             route_aware_discovery_selection=(
                 not args.disable_route_aware_discovery_selection
@@ -87,11 +99,17 @@ def main() -> int:
             scan_after_clear=not args.disable_scan_after_clear,
             opportunistic_scan_rate_ratio=args.opportunistic_scan_rate_ratio,
             target_posterior_particle_count=args.target_posterior_particle_count,
+            use_enclosing_circle_target=args.use_enclosing_circle_target,
             refinement_phase_divisions=args.refinement_phase_divisions,
             include_polar_refinement=args.polar_refinement,
             discovery_points=(
                 directional_discovery_lattice()
                 if args.base_lattice_only
+                else None
+            ),
+            target_estimate_override=(
+                source_positions.get
+                if args.analysis_oracle_target_estimates
                 else None
             ),
         ).run(environment)
@@ -107,6 +125,14 @@ def main() -> int:
                 "virtual_time_s": result.virtual_time_s,
                 "mean_time_s": result.mean_clear_time_s,
                 "measures": result.measure_actions,
+                "discovery_measures": result.discovery_measure_actions,
+                "undetected_discovery_measures": (
+                    result.undetected_discovery_measure_actions
+                ),
+                "detected_discovery_measures": (
+                    result.detected_discovery_measure_actions
+                ),
+                "pursuit_measures": result.pursuit_measure_actions,
                 "clears": result.clear_actions,
                 "travel_m": result.travel_distance_m,
                 "discovery_travel_m": result.discovery_travel_distance_m,
@@ -114,7 +140,14 @@ def main() -> int:
                 "discovery_positions": result.discovery_positions,
                 "unresolved": result.unresolved_channels,
                 "posterior_complete": result.posterior_all_sources_detected,
+                "posterior_expected_remaining_sources": (
+                    result.posterior_expected_remaining_sources
+                ),
+                "posterior_expected_missed_source_fraction": (
+                    result.posterior_expected_missed_source_fraction
+                ),
                 "probability_stop": result.stopped_by_probability,
+                "source_risk_stop": result.stopped_by_source_risk,
                 "approximate_oracle_time_s": approximate_oracle_time_s,
                 "competitive_ratio": result.virtual_time_s / approximate_oracle_time_s,
                 "wall_time_s": time.perf_counter() - episode_wall_started,
@@ -130,11 +163,31 @@ def main() -> int:
             args.environment_directional_probability
         ),
         "belief_directional_probability": args.belief_directional_probability,
+        "stop_probability": args.stop_probability,
+        "source_miss_risk_budget": args.source_miss_risk_budget,
+        "any_source_remaining_probability_budget": (
+            args.any_source_remaining_probability_budget
+        ),
         "source_clear_rate": cleared_count / source_count,
         "complete_case_rate": sum(row["sources"] == row["cleared"] for row in rows) / len(rows),
         "mean_episode_mean_time_s": statistics.fmean(mean_times),
+        "mean_virtual_time_s_per_true_source": sum(
+            row["virtual_time_s"] for row in rows
+        ) / source_count,
         "p95_episode_mean_time_s": sorted(mean_times)[int(0.95 * (len(mean_times) - 1))],
         "mean_measure_actions": statistics.fmean(row["measures"] for row in rows),
+        "mean_discovery_measure_actions": statistics.fmean(
+            row["discovery_measures"] for row in rows
+        ),
+        "mean_undetected_discovery_measure_actions": statistics.fmean(
+            row["undetected_discovery_measures"] for row in rows
+        ),
+        "mean_detected_discovery_measure_actions": statistics.fmean(
+            row["detected_discovery_measures"] for row in rows
+        ),
+        "mean_pursuit_measure_actions": statistics.fmean(
+            row["pursuit_measures"] for row in rows
+        ),
         "mean_clear_actions": statistics.fmean(row["clears"] for row in rows),
         "mean_discovery_positions": statistics.fmean(
             row["discovery_positions"] for row in rows
@@ -160,6 +213,13 @@ def main() -> int:
             row["competitive_ratio"] for row in rows
         ),
         "probability_stop_rate": sum(row["probability_stop"] for row in rows) / len(rows),
+        "source_risk_stop_rate": sum(row["source_risk_stop"] for row in rows) / len(rows),
+        "mean_posterior_expected_remaining_sources": statistics.fmean(
+            row["posterior_expected_remaining_sources"] for row in rows
+        ),
+        "mean_posterior_expected_missed_source_fraction": statistics.fmean(
+            row["posterior_expected_missed_source_fraction"] for row in rows
+        ),
         "mean_episode_wall_time_s": statistics.fmean(
             row["wall_time_s"] for row in rows
         ),
@@ -170,6 +230,8 @@ def main() -> int:
         "failures": [row for row in rows if row["sources"] != row["cleared"]],
         "wall_time_s": time.perf_counter() - wall_started,
     }
+    if args.include_rows:
+        report["rows"] = rows
     encoded = json.dumps(report, ensure_ascii=False, indent=2)
     if args.output is not None:
         args.output.parent.mkdir(parents=True, exist_ok=True)

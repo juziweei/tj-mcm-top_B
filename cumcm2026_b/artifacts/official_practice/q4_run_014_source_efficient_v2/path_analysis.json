@@ -1,0 +1,31 @@
+{
+  "log": "artifacts\\official_practice\\q4_run_014_source_efficient_v2\\client.jsonl",
+  "sources": 12,
+  "cleared": 12,
+  "virtual_time_s": 6449.308012,
+  "virtual_time_s_per_true_source": 537.4423343333334,
+  "total_travel_m": 22821.540063036788,
+  "travel_time_share": 0.7077205808925097,
+  "execution_clear_route_m": 12603.61800944977,
+  "clear_position_oracle_m": 8166.240652160019,
+  "clear_order_excess_m": 4437.377357289752,
+  "between_clear_detour_m": 6425.671291159573,
+  "post_last_clear_travel_m": 3792.250762427444,
+  "last_first_detection_s": 5395.25786,
+  "last_successful_clear_s": 5548.85786,
+  "post_last_clear_virtual_time_s": 900.4501520000003,
+  "clear_channels_in_order": [
+    8,
+    14,
+    13,
+    3,
+    15,
+    9,
+    1,
+    17,
+    16,
+    4,
+    5,
+    11
+  ]
+}
